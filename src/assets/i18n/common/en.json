@@ -1,0 +1,43 @@
+{
+  "project": {
+    "name": "Interview Task"
+  },
+  "footer": {
+    "copyRight": "All rights reserved to Mostafa Mahmoud El-sherbini {{year}}"
+  },
+  "language": {
+    "ar": "العربية",
+    "en": "English"
+  },
+  "btn": {
+    "add": "Add",
+    "create": "Create",
+    "update": "Update",
+    "delete": "Delete",
+    "view": "View"
+  },
+  "table": {
+    "tableOptions": "Table Options",
+    "tableActions": "Actions",
+    "downloadExcel": "Download Excel",
+    "pageReportTemplate": "Showing {{first}} to {{last}} of {{totalRecords}} | Records/Page"
+  },
+  "status": {
+    "pending": "Pending",
+    "available": "Available",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "calendar": {
+    "utilities": {
+      "day": "Day",
+      "days": "Days",
+      "week": "Week",
+      "weeks": "Weeks",
+      "month": "Month",
+      "months": "Months",
+      "year": "Year",
+      "years": "Years"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+/** START::PRIMARY COLORS VARIABLES SCHEMA */
+$primary-color: var(--primary-color);
+$primary-color-950: var(--primary-color-950);
+$primary-color-900: var(--primary-color-900);
+$primary-color-800: var(--primary-color-800);
+$primary-color-700: var(--primary-color-700);
+$primary-color-600: var(--primary-color-600);
+$primary-color-500: var(--primary-color-500);
+$primary-color-400: var(--primary-color-400);
+$primary-color-300: var(--primary-color-300);
+$primary-color-200: var(--primary-color-200);
+$primary-color-100: var(--primary-color-100);
+$primary-color-50: var(--primary-color-50);
+/** END::PRIMARY COLORS VARIABLES SCHEMA */
+
+/** START::COLORS VARIABLES SCHEMA */
+$secondary-color: var(--secondary-color);
+$subtitle-color: var(--subtitle-color);
+$land-surface: var(--land-surface);
+$card-surface: var(--card-surface);
+$error-color: var(--error-color);
+$border-color: var(--border-color);
+$border-light-color: var(--border-light-color);
+$border-info-color: var(--border-info-color);
+$danger-color-light: var(--danger-color-light);
+$plain-color: var(--plain-color);
+$info-color: var(--info-color);
+$white-color: var(--white-color);
+$warn-color: var(--warn-color);
+$danger-color: var(--danger-color);
+$success-color: var(--success-color);
+/** END::COLORS VARIABLES SCHEMA */
+
+/** START::SURFACES */
+$surface-0: var(--surface-0);
+$surface-50: var(--surface-50);
+$surface-100: var(--surface-100);
+$surface-200: var(--surface-200);
+$surface-300: var(--surface-300);
+$surface-400: var(--surface-400);
+$surface-500: var(--surface-500);
+$surface-600: var(--surface-600);
+$surface-700: var(--surface-700);
+$surface-800: var(--surface-800);
+$surface-900: var(--surface-900);
+$surface-950: var(--surface-950);
+/** END::SURFACES */
+
+/** START::INPUT COLOR SCHEMA */
+$input-border-color: var(--input-border-color);
+$input-text-color: var(--input-text-color);
+$input-bg-color: var(--input-bg-color);
+$input-disable-bg-color: var(--input-disable-bg-color);
+$input-error-color: var(--input-error-color);
+/** END::INPUT COLOR SCHEMA */

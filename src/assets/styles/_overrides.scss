@@ -1,0 +1,92 @@
+@import 'common.scss';
+
+/* START OF SCROLL */
+*::-webkit-scrollbar {
+  width: toRem(4) !important;
+  height: toRem(4) !important;
+}
+*::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+*::-webkit-scrollbar-thumb {
+  background: $subtitle-color !important;
+  border-radius: toRem(16) !important;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: $secondary-color !important;
+}
+/* END OF SCROLL */
+
+/**
+  START::GLOBAL OVERRIDES
+*/
+
+/**
+  END::GLOBAL OVERRIDES
+*/
+
+/**
+  START::PRIME-NG DIALOG [Custom]
+*/
+.dynamic-drawer-dialog {
+  margin: 0;
+  min-width: fit-content;
+  height: 100vh;
+  max-height: 100vh;
+
+  .p-dialog-content {
+    height: 100%;
+  }
+}
+/**
+  END::PRIME-NG DIALOG [Custom]
+*/
+
+/**
+  START::PRIME-NG DIALOG [Custom]
+*/
+.dynamic-dialog {
+  margin: 0;
+  min-width: 28rem !important;
+}
+/**
+  END::PRIME-NG DIALOG [Custom]
+*/
+
+/**
+  START::PRIME-NG TOOL-TIP
+*/
+.p-tooltip {
+  background-color: transparent !important;
+  .p-tooltip-text,
+  .p-tooltip-arrow {
+    background-color: $card-surface !important;
+    color: $secondary-color;
+    border-color: transparent;
+  }
+}
+/**
+  END::PRIME-NG TOOL-TIP
+*/
+
+/**
+  START::PRIME-NG TAB VIEWs
+*/
+.p-tabs {
+  background-color: transparent;
+
+  .p-tablist {
+    background-color: transparent;
+    .p-tablist-tab-list {
+      border-color: transparent;
+    }
+  }
+  .p-tabpanels {
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+/**
+  END::PRIME-NG TAB VIEWs
+*/

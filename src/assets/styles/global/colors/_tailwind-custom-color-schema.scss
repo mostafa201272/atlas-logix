@@ -1,0 +1,51 @@
+/** START::TAILWIND CUSTOM COLOR SCHEMA */
+@theme {
+  --color-primary: var(--primary-color);
+  --color-primary-950: var(--primary-color-950);
+  --color-primary-900: var(--primary-color-900);
+  --color-primary-800: var(--primary-color-800);
+  --color-primary-700: var(--primary-color-700);
+  --color-primary-600: var(--primary-color-600);
+  --color-primary-500: var(--primary-color-500);
+  --color-primary-400: var(--primary-color-400);
+  --color-primary-300: var(--primary-color-300);
+  --color-primary-200: var(--primary-color-200);
+  --color-primary-100: var(--primary-color-100);
+  --color-primary-50: var(--primary-color-50);
+  --color-secondary: var(--secondary-color);
+  --color-subtitle: var(--subtitle-color);
+  --color-surface-950: var(--surface-950);
+  --color-info: var(--info-color);
+  --color-land-surface: var(--land-surface);
+  --color-card-surface: var(--card-surface);
+  --color-error: var(--error-color);
+  --color-default-border: var(--border-color);
+  --color-border-info: var(--border-info-color);
+  --color-border-light: var(--border-light-color);
+  --color-input-border: var(--input-border-color);
+  --color-input-text: var(--input-text-color);
+  --color-subtitle-color: var(--subtitle-color);
+  --color-neutral-9: var(--neutral-9-color);
+  --color-input-bg: var(--input-bg-color);
+  --color-input-disable-bg: var(--input-disable-bg-color);
+  --color-input-error: var(--input-error-color);
+  --color-danger: var(--danger-color);
+
+  /** START::SURFACES */
+  --color-surface-0: var(--surface-0);
+  --color-surface-50: var(--surface-50);
+  --color-surface-100: var(--surface-100);
+  --color-surface-200: var(--surface-200);
+  --color-surface-300: var(--surface-300);
+  --color-surface-400: var(--surface-400);
+  --color-surface-500: var(--surface-500);
+  --color-surface-600: var(--surface-600);
+  --color-surface-700: var(--surface-700);
+  --color-surface-800: var(--surface-800);
+  --color-surface-900: var(--surface-900);
+  --color-surface-950: var(--surface-950);
+  /** END::SURFACES */
+
+  --color-radio-button-label: var(--radio-button-label-color);
+}
+/** END::TAILWIND CUSTOM COLOR SCHEMA */

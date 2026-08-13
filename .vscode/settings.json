@@ -1,0 +1,14 @@
+{
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html"
+  },
+  "files.associations": {
+    "*.scss": "scss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "cSpell.words": [""],
+  "tailwindCSS.experimental.configFile": "src/styles.scss",
+  "tailwindCSS.experimental.classRegex": []
+}

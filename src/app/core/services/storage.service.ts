@@ -1,0 +1,111 @@
+import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { LOCAL_STORAGE_PREFIX } from '@utilities/constants';
+
+@Injectable({ providedIn: 'root' })
+export class StorageService {
+  private readonly router = inject(Router);
+
+  /**
+   * Event emitter for listening to changes in local storage.
+   * Emits an object containing the key and the new value when an item is added, updated, or removed.
+   */
+  listeners: BehaviorSubject<Record<string, unknown>> = new BehaviorSubject<
+    Record<string, unknown>
+  >({});
+
+  /**
+   * Retrieve item from local storage and parse as JSON if applicable.
+   * @param key - The key of the property to retrieve
+   * @returns The parsed value if JSON, otherwise the raw string value, or null if not found
+   */
+  public getStorage = (key: string): unknown => {
+    const storageKey = `${LOCAL_STORAGE_PREFIX}.${key}`;
+    const item = localStorage.getItem(storageKey);
+
+    if (item === null) {
+      return null;
+    }
+
+    try {
+      return JSON.parse(item);
+    } catch (_error: unknown) {
+      return item;
+    }
+  };
+
+  /**
+   * Add/set item to browser local storage.
+   * @param key - The identifier for the local storage item
+   * @param value - The value of the local storage item
+   */
+  public setStorage = (key: string, value: unknown): void => {
+    const newKey = `${LOCAL_STORAGE_PREFIX}.${key}`;
+
+    // Only store non-null and non-undefined values
+    if (value === null || value === undefined) {
+      return;
+    }
+
+    if (typeof value === 'object') {
+      localStorage.setItem(newKey, JSON.stringify(value));
+    } else {
+      localStorage.setItem(newKey, String(value as string));
+    }
+
+    this.listeners.next({
+      ...this.listeners.value,
+      [newKey]: value,
+    });
+  };
+
+  /**
+   * Remove item from browser local storage.
+   * @param key - The identifier for the local storage item
+   */
+  public removeStorageItem = (key: string): void => {
+    localStorage.removeItem(`${LOCAL_STORAGE_PREFIX}.${key}`);
+  };
+
+  /**
+   * Save table filters to local storage.
+   * @param value - The filter value to store
+   * @param identifier - Optional identifier for the filter cache key
+   */
+  saveTableFilterToLocalStorage(value: unknown, identifier?: string): void {
+    this.setStorage(identifier ?? this.getTableFilterCacheKey(), value);
+  }
+
+  /**
+   * Retrieve table filters from local storage.
+   * @param identifier - Optional identifier for the filter cache key
+   * @returns The stored filter value or null if not found
+   */
+  getTableFiltration(identifier?: string): unknown {
+    return this.getStorage(identifier ?? this.getTableFilterCacheKey());
+  }
+
+  /**
+   * Delete table filters from local storage.
+   * @param identifier - Optional identifier for the filter cache key
+   */
+  deleteTableFiltration(identifier?: string): void {
+    this.removeStorageItem(identifier ?? this.getTableFilterCacheKey());
+  }
+
+  /**
+   * Get current URL to use as table filter cache key.
+   * @returns Current router URL
+   */
+  getTableFilterCacheKey(): string {
+    return this.router.url;
+  }
+
+  /**
+   * Clear all items from local storage.
+   */
+  public empty = (): void => {
+    localStorage.clear();
+  };
+}

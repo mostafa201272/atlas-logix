@@ -1,0 +1,18 @@
+{
+  "errors": {
+    "general": {
+      "unauthorized": "Unauthorized",
+      "forbidden": "Forbidden",
+      "notFound": "Not Found",
+      "internalServerError": "Internal Server Error"
+    },
+    "forms": {
+      "inputRequired": "This input is required",
+      "minLength": "Minimum length is {{length}}}/{{minLength}}",
+      "maxLength": "Maximum length is {{length}}}/{{maxLength}}"
+    },
+    "formatError": {
+      "invalidMailFormat": "Invalid email format (eg. example@elsherbini.com)"
+    }
+  }
+}
