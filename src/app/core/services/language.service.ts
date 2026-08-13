@@ -34,11 +34,10 @@ export class LanguageService {
     this._translateService.use(/en|ar/.exec(browserLang) ? browserLang : DEFAULT_LANGUAGE);
     this._translateService.setFallbackLang(DEFAULT_LANGUAGE);
 
-    // SET DOCUMENT DIRECTION
-    document.documentElement.setAttribute(
-      'dir',
-      this._storageService.getStorage('lang') !== DEFAULT_LANGUAGE ? 'rtl' : 'ltr',
-    );
+    /**
+     * SET DOCUMENT DIRECTION
+     */
+    this.setDocumentDirection(this._storageService.getStorage<string>('lang') || DEFAULT_LANGUAGE);
   }
 
   /**
@@ -51,7 +50,18 @@ export class LanguageService {
     this._translateService.use(lang);
     this._storageService.setStorage('lang', lang);
 
-    // SET DOCUMENT DIRECTION
+    /**
+     * SET DOCUMENT DIRECTION
+     */
+    this.setDocumentDirection(lang);
+  }
+
+  /**
+   * SET DOCUMENT DIRECTION
+   * @param lang - The language code to set the document direction.
+   * @returns {void}
+   */
+  setDocumentDirection(lang: string): void {
     document.documentElement.setAttribute('dir', lang !== DEFAULT_LANGUAGE ? 'rtl' : 'ltr');
   }
 

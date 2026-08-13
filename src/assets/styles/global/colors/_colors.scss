@@ -1,107 +1,97 @@
-/** START::SCHEMA COLORS */
+/** START::FIGMA DESIGN TOKENS */
 :root {
-  /** START::PRIMARY COLORS */
-  --primary-color: #00b2a9;
-  --primary-color-950: #002c2a;
-  --primary-color-900: #00423d;
-  --primary-color-800: #00423d;
-  --primary-color-700: #00978f;
-  --primary-color-600: #007c74;
-  --primary-color-500: #00b2a9;
-  --primary-color-400: #ccf6f2;
-  --primary-color-300: #007c74;
-  --primary-color-200: #007c74;
-  --primary-color-100: #007c74;
-  --primary-color-50: #e6faf8;
+  /* START::PRIMITIVES — Colors */
+  --navy: #0f172a;
+  --deep-blue: #1e3a8a;
+  --blue: #2563eb;
+  --cyan: #14b8a6;
+  --teal-light: #5eead4;
+  --green: #168a68;
+  --orange: #d97706;
+  --red: #c2414c;
+  --purple: #7c3aed;
+  /* END::PRIMITIVES — Colors */
 
-  /** START::COLORS */
-  --secondary-color: #002c2a;
-  --subtitle-color: #64748b;
-  --land-surface: #f8fafc;
-  --card-surface: #ffffff;
-  --surface-950: #020617;
-  --error-color: #ff4d4f;
-  --border-color: #e2e8f0;
-  --border-light-color: #f1f5f9;
-  --danger-color-light: #fecaca;
-  --plain-color: #334155;
-  --neutral-9-color: #272b30;
-  --info-color: #0ea5e9;
-  --border-info-color: #0369a1;
-  --white-color: #fff;
-  --warn-color: #f97316;
-  --danger-color: #ef4444;
-  --success-color: #007c74;
+  /* Brand */
+  --brand-navy: var(--navy);
+  --brand-deep-blue: var(--deep-blue);
+  --brand-blue: var(--blue);
+  --brand-cyan: var(--cyan);
+  --brand-teal-light: var(--teal-light);
 
-  /** START::SURFACES */
-  --surface-0: #ffffff;
-  --surface-50: #f8fafc;
-  --surface-100: #f1f5f9;
-  --surface-200: #e2e8f0;
-  --surface-300: #cbd5e1;
-  --surface-400: #cbd5e1;
-  --surface-500: #475569;
-  --surface-600: #475569;
-  --surface-700: #334155;
-  --surface-800: #1e293b;
-  --surface-900: #0f172a;
-  --surface-950: #020617;
-  /** END::SURFACES */
+  /* Dark Surfaces */
+  --dark-start: #081b42;
+  --dark-middle: #102b62;
+  --dark-end: #0b234a;
+  --dark-text: #d7e4f3;
+  --dark-text-muted: #c8d7e9;
 
-  /** START::INPUT COLOR SCHEMA */
-  --input-border-color: #cbd5e1;
-  --input-text-color: #64748b;
-  --input-bg-color: #ffffff;
-  --input-disable-bg-color: #e2e8f0;
-  --input-error-color: #ff4d4f;
-  --radio-button-label-color: #334155;
-  /** END::INPUT COLOR SCHEMA */
+  /* Neutral */
+  --neutral-muted: #475569;
+  --neutral-line: #e2e8f0;
+  --neutral-surface: #ffffff;
+  --neutral-soft: #f8fafe;
+  --neutral-subtle: #edf3f7;
+  --neutral-subtle-strong: #cbd5e1;
+
+  /* Feedback */
+  --feedback-green: var(--green);
+  --feedback-orange: var(--orange);
+  --feedback-red: var(--red);
+  --feedback-purple: var(--purple);
+
+  /* Status */
+  --status-success-bg: #e4f7f0;
+  --status-success-text: #087356;
+  --status-warning-bg: #fff1d9;
+  --status-warning-text: #9a5c07;
+  --status-negative-bg: #fdecef;
+  --status-negative-text: #9d3340;
+  --status-neutral-bg: #eaf0f3;
+  --status-neutral-text: #587083;
+
+  /* =============================================
+     SEMANTIC COLORS — Light Mode (default)
+     ============================================= */
+
+  /* Background / Surface */
+  --bg-canvas: var(--neutral-soft);
+  --bg-surface: var(--neutral-surface);
+  --bg-sidebar: var(--dark-start);
+  --bg-subtle: var(--neutral-subtle);
+  --bg-accent: var(--brand-blue);
+  --bg-accent-secondary: var(--brand-cyan);
+
+  /* Text */
+  --text-primary: var(--brand-navy);
+  --text-secondary: var(--neutral-muted);
+  --text-on-dark: var(--neutral-surface);
+  --text-accent: var(--brand-blue);
+
+  /* Icon */
+  --icon-default: var(--brand-navy);
+  --icon-on-dark: var(--neutral-surface);
+  --icon-accent: var(--brand-blue);
+
+  /* Border */
+  --border-default: var(--neutral-line);
+  --border-on-dark: var(--neutral-muted);
+
+  /* Status */
+  --status-success-bg: var(--status-success-bg);
+  --status-success-text: var(--status-success-text);
+  --status-warning-bg: var(--status-warning-bg);
+  --status-warning-text: var(--status-warning-text);
+  --status-negative-bg: var(--status-negative-bg);
+  --status-negative-text: var(--status-negative-text);
+  --status-neutral-bg: var(--status-neutral-bg);
+  --status-neutral-text: var(--status-neutral-text);
+
+  /* =============================================
+     TYPOGRAPHY
+     ============================================= */
+
+  /* Family */
+  --font-family: 'Inter', sans-serif;
 }
-/** END::SCHEMA COLORS */
-
-:root {
-  /* PRIMARY */
-  --p-primary-color: var(--primary-color);
-
-  /** START::PRIMARY BUTTONs */
-  --p-button-primary-hover-background: var(--primary-color-700);
-  --p-button-primary-active-background: var(--primary-color-600);
-  --p-button-primary-hover-border-color: var(--primary-color);
-  --p-button-outlined-primary-border-color: var(--primary-color);
-  --p-button-outlined-primary-active-background: #ccf6f2;
-  --p-button-outlined-primary-hover-background: #e6faf8;
-  --p-button-text-primary-hover-background: transparent;
-  /** END::PRIMARY BUTTONs */
-
-  /** START::PRIME SELECT */
-  --p-select-option-selected-background: var(--primary-color);
-  --p-select-option-selected-color: var(--white-color);
-  --p-select-option-selected-focus-background: var(--primary-color);
-  --p-select-option-selected-focus-color: var(--white-color);
-  --p-select-focus-border-color: var(--p-select-border-color);
-  /** END::PRIME SELECT */
-
-  /** START::PRIME CHECKBOX */
-  --p-checkbox-checked-hover-background: var(--primary-color);
-  --p-checkbox-checked-hover-border-color: var(--primary-color);
-  --p-checkbox-checked-focus-border-color: transparent;
-  /** END::PRIME CHECKBOX */
-}
-
-/** START::COMPONENTs COLORS */
-:root {
-  /** START:: BUTTONs COLORs */
-  --btn-outlined-background: var(--white-color);
-  --btn-text-background: transparent;
-  --btn-primary-color: var(--primary-color);
-  --btn-secondary-color: var(--secondary-color);
-  --btn-danger-color: var(--danger-color);
-  --btn-warn-color: var(--warn-color);
-  --btn-plain-color: var(--plain-color);
-  --btn-success-color: var(--success-color);
-  --btn-info-color: var(--info-color);
-  --btn-primary-color-outlined-border-color: var(--primary-color-light);
-  --btn-danger-color-outlined-border-color: var(--danger-color-light);
-  /** END:: BUTTONs COLORs */
-}
-/** END::COMPONENTs COLORS */
+/** END::FIGMA DESIGN TOKENS */

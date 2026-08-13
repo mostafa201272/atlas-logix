@@ -1,12 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { LOCAL_STORAGE_PREFIX } from '@utilities/constants';
 
 @Injectable({ providedIn: 'root' })
 export class StorageService {
-  private readonly router = inject(Router);
-
   /**
    * Event emitter for listening to changes in local storage.
    * Emits an object containing the key and the new value when an item is added, updated, or removed.
@@ -20,7 +17,7 @@ export class StorageService {
    * @param key - The key of the property to retrieve
    * @returns The parsed value if JSON, otherwise the raw string value, or null if not found
    */
-  public getStorage = (key: string): unknown => {
+  public getStorage = <T>(key: string): T | null => {
     const storageKey = `${LOCAL_STORAGE_PREFIX}.${key}`;
     const item = localStorage.getItem(storageKey);
 
@@ -29,9 +26,9 @@ export class StorageService {
     }
 
     try {
-      return JSON.parse(item);
+      return JSON.parse(item) as T;
     } catch (_error: unknown) {
-      return item;
+      return item as T;
     }
   };
 
@@ -67,40 +64,6 @@ export class StorageService {
   public removeStorageItem = (key: string): void => {
     localStorage.removeItem(`${LOCAL_STORAGE_PREFIX}.${key}`);
   };
-
-  /**
-   * Save table filters to local storage.
-   * @param value - The filter value to store
-   * @param identifier - Optional identifier for the filter cache key
-   */
-  saveTableFilterToLocalStorage(value: unknown, identifier?: string): void {
-    this.setStorage(identifier ?? this.getTableFilterCacheKey(), value);
-  }
-
-  /**
-   * Retrieve table filters from local storage.
-   * @param identifier - Optional identifier for the filter cache key
-   * @returns The stored filter value or null if not found
-   */
-  getTableFiltration(identifier?: string): unknown {
-    return this.getStorage(identifier ?? this.getTableFilterCacheKey());
-  }
-
-  /**
-   * Delete table filters from local storage.
-   * @param identifier - Optional identifier for the filter cache key
-   */
-  deleteTableFiltration(identifier?: string): void {
-    this.removeStorageItem(identifier ?? this.getTableFilterCacheKey());
-  }
-
-  /**
-   * Get current URL to use as table filter cache key.
-   * @returns Current router URL
-   */
-  getTableFilterCacheKey(): string {
-    return this.router.url;
-  }
 
   /**
    * Clear all items from local storage.

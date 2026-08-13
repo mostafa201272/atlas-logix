@@ -1,14 +1,11 @@
 import {
   ApplicationConfig,
-  importProvidersFrom,
   inject,
   provideAppInitializer,
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-// import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { provideTranslateService, provideTranslateLoader } from "@ngx-translate/core";
+import { provideTranslateService, provideTranslateLoader } from '@ngx-translate/core';
 
 import { MultiTranslateHttpLoader } from 'ngx-translate-multi-http-loader';
 import { routes } from './app.routes';
@@ -29,7 +26,7 @@ function translationLoaderFactory(httpBackend: HttpBackend): MultiTranslateHttpL
   return new MultiTranslateHttpLoader(httpBackend, [
     '/assets/i18n/common/',
     '/assets/i18n/errors/',
-    '/assets/i18n/modules/home/',
+    '/assets/i18n/modules/auth/',
   ]);
 }
 
@@ -54,22 +51,12 @@ export const appConfig: ApplicationConfig = {
       },
       ripple: true,
     }),
-    // provideTranslateService(
-    //   TranslateModule.forRoot({
-    //     defaultLanguage: DEFAULT_LANGUAGE,
-    //     loader: {
-    //       provide: TranslateLoader,
-    //       useFactory: translationLoaderFactory,
-    //       deps: [HttpBackend],
-    //     },
-    //   }),
-    // ),
     provideTranslateService({
       loader: provideTranslateLoader(() => translationLoaderFactory(inject(HttpBackend))),
       fallbackLang: DEFAULT_LANGUAGE,
     }),
     provideAppInitializer(() => {
-      inject(LanguageService).initLang()
+      inject(LanguageService).initLang();
     }),
     MessageService,
     ConfirmationService,

@@ -2,7 +2,14 @@
 /**
   START::UTILITIES CLASSES
 */
-
+.bg-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--dark-start) 0%,
+    var(--dark-middle) 50%,
+    var(--dark-end) 100%
+  );
+}
 /**
   END::UTILITIES CLASSES
 */

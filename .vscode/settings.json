@@ -8,7 +8,9 @@
   "editor.quickSuggestions": {
     "strings": "on"
   },
-  "cSpell.words": [""],
+  "cSpell.words": [
+    "logix"
+  ],
   "tailwindCSS.experimental.configFile": "src/styles.scss",
   "tailwindCSS.experimental.classRegex": []
 }

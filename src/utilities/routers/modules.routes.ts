@@ -49,7 +49,7 @@
 /**
  * SUB-MODULES ROUTES CONFIGURATIONs
  */
-import { HOME_ROUTES } from './routes';
+import { AUTH_ROUTES, HOME_ROUTES } from './routes';
 
 /**
  * MODULES ROUTES HOLDER OBJECT
@@ -59,6 +59,7 @@ export const MODULES_ROUTES = {
     name: '',
     route: '/',
 
+    auth: AUTH_ROUTES('/auth'),
     home: HOME_ROUTES('/home'),
   },
 };

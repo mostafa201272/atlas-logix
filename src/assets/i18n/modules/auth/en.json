@@ -1,0 +1,26 @@
+{
+  "auth": {
+    "promo": {
+      "complianceOperations": {
+        "title": "Compliance operations",
+        "subtitle": "Confidence at every checkpoint.",
+        "description": "Review shipment conditions, investigate sensor excursions, and protect the integrity of regulated logistics records.",
+        "metrics": {
+          "monitoring": {
+            "title": "Monitoring",
+            "value": "24/7"
+          },
+          "traceability": {
+            "title": "Traceability",
+            "value": "100%"
+          },
+          "protected": {
+            "title": "Protected",
+            "value": "Role"
+          }
+        }
+      },
+      "footer": "Fictional platform · Synthetic assessment data"
+    }
+  }
+}

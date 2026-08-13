@@ -1,55 +1,111 @@
-/** START::PRIMARY COLORS VARIABLES SCHEMA */
-$primary-color: var(--primary-color);
-$primary-color-950: var(--primary-color-950);
-$primary-color-900: var(--primary-color-900);
-$primary-color-800: var(--primary-color-800);
-$primary-color-700: var(--primary-color-700);
-$primary-color-600: var(--primary-color-600);
-$primary-color-500: var(--primary-color-500);
-$primary-color-400: var(--primary-color-400);
-$primary-color-300: var(--primary-color-300);
-$primary-color-200: var(--primary-color-200);
-$primary-color-100: var(--primary-color-100);
-$primary-color-50: var(--primary-color-50);
-/** END::PRIMARY COLORS VARIABLES SCHEMA */
+/** START::PRIMITIVES COLORS VARIABLES */
+$navy: var(--navy);
+$deep-blue: var(--deep-blue);
+$blue: var(--blue);
+$cyan: var(--cyan);
+$teal-light: var(--teal-light);
+$green: var(--green);
+$orange: var(--orange);
+$red: var(--red);
+$purple: var(--purple);
+/** END::PRIMITIVES COLORS VARIABLES */
 
-/** START::COLORS VARIABLES SCHEMA */
-$secondary-color: var(--secondary-color);
-$subtitle-color: var(--subtitle-color);
-$land-surface: var(--land-surface);
-$card-surface: var(--card-surface);
-$error-color: var(--error-color);
-$border-color: var(--border-color);
-$border-light-color: var(--border-light-color);
-$border-info-color: var(--border-info-color);
-$danger-color-light: var(--danger-color-light);
-$plain-color: var(--plain-color);
-$info-color: var(--info-color);
-$white-color: var(--white-color);
-$warn-color: var(--warn-color);
-$danger-color: var(--danger-color);
-$success-color: var(--success-color);
-/** END::COLORS VARIABLES SCHEMA */
+/** START::BRAND COLORS VARIABLES */
+$brand-navy: var(--brand-navy);
+$brand-deep-blue: var(--brand-deep-blue);
+$brand-blue: var(--brand-blue);
+$brand-cyan: var(--brand-cyan);
+$brand-teal-light: var(--brand-teal-light);
+/** END::BRAND COLORS VARIABLES */
 
-/** START::SURFACES */
-$surface-0: var(--surface-0);
-$surface-50: var(--surface-50);
-$surface-100: var(--surface-100);
-$surface-200: var(--surface-200);
-$surface-300: var(--surface-300);
-$surface-400: var(--surface-400);
-$surface-500: var(--surface-500);
-$surface-600: var(--surface-600);
-$surface-700: var(--surface-700);
-$surface-800: var(--surface-800);
-$surface-900: var(--surface-900);
-$surface-950: var(--surface-950);
-/** END::SURFACES */
+/** START::DARK SURFACES VARIABLES */
+$dark-start: var(--dark-start);
+$dark-middle: var(--dark-middle);
+$dark-end: var(--dark-end);
+$dark-text: var(--dark-text);
+$dark-text-muted: var(--dark-text-muted);
+/** END::DARK SURFACES VARIABLES */
 
-/** START::INPUT COLOR SCHEMA */
-$input-border-color: var(--input-border-color);
-$input-text-color: var(--input-text-color);
-$input-bg-color: var(--input-bg-color);
-$input-disable-bg-color: var(--input-disable-bg-color);
-$input-error-color: var(--input-error-color);
-/** END::INPUT COLOR SCHEMA */
+/** START::NEUTRAL VARIABLES */
+$neutral-muted: var(--neutral-muted);
+$neutral-line: var(--neutral-line);
+$neutral-surface: var(--neutral-surface);
+$neutral-soft: var(--neutral-soft);
+$neutral-subtle: var(--neutral-subtle);
+$neutral-subtle-strong: var(--neutral-subtle-strong);
+/** END::NEUTRAL VARIABLES */
+
+/** START::FEEDBACK VARIABLES */
+$feedback-green: var(--feedback-green);
+$feedback-orange: var(--feedback-orange);
+$feedback-red: var(--feedback-red);
+$feedback-purple: var(--feedback-purple);
+/** END::FEEDBACK VARIABLES */
+
+/** START::STATUS VARIABLES */
+$status-success-bg: var(--status-success-bg);
+$status-success-text: var(--status-success-text);
+$status-warning-bg: var(--status-warning-bg);
+$status-warning-text: var(--status-warning-text);
+$status-negative-bg: var(--status-negative-bg);
+$status-negative-text: var(--status-negative-text);
+$status-neutral-bg: var(--status-neutral-bg);
+$status-neutral-text: var(--status-neutral-text);
+/** END::STATUS VARIABLES */
+
+/** START::SEMANTIC COLORS VARIABLES */
+$color-bg-canvas: var(--bg-canvas);
+$color-bg-surface: var(--bg-surface);
+$color-bg-sidebar: var(--bg-sidebar);
+$color-bg-subtle: var(--bg-subtle);
+$color-bg-accent: var(--bg-accent);
+$color-bg-accent-secondary: var(--bg-accent-secondary);
+
+$color-text-primary: var(--text-primary);
+$color-text-secondary: var(--text-secondary);
+$color-text-on-dark: var(--text-on-dark);
+$color-text-accent: var(--text-accent);
+
+$color-icon-default: var(--icon-default);
+$color-icon-on-dark: var(--icon-on-dark);
+$color-icon-accent: var(--icon-accent);
+
+$color-border-default: var(--border-default);
+$color-border-on-dark: var(--border-on-dark);
+
+$color-status-success-bg: var(--status-success-bg);
+$color-status-success-text: var(--status-success-text);
+$color-status-warning-bg: var(--status-warning-bg);
+$color-status-warning-text: var(--status-warning-text);
+$color-status-negative-bg: var(--status-negative-bg);
+$color-status-negative-text: var(--status-negative-text);
+$color-status-neutral-bg: var(--status-neutral-bg);
+$color-status-neutral-text: var(--status-neutral-text);
+/** END::SEMANTIC COLORS VARIABLES */
+
+/** START::TYPOGRAPHY */
+$font-family: var(--font-family);
+/** END::TYPOGRAPHY */
+
+/** START::LEGACY ALIASES (BACKWARD COMPATIBILITY) */
+$primary-color: $color-bg-accent;
+$secondary-color: $color-text-primary;
+$subtitle-color: $neutral-muted;
+$land-surface: $color-bg-canvas;
+$card-surface: $color-bg-surface;
+$border-color: $color-border-default;
+$border-light-color: $neutral-line;
+$border-info-color: $color-border-on-dark;
+$danger-color-light: $status-negative-bg;
+$plain-color: $neutral-muted;
+$info-color: $brand-cyan;
+$white-color: #ffffff;
+$warn-color: $orange;
+$danger-color: $red;
+$success-color: $green;
+$input-border-color: $color-border-default;
+$input-text-color: $color-text-primary;
+$input-bg-color: $color-bg-surface;
+$input-disable-bg-color: $neutral-subtle;
+$input-error-color: $status-negative-text;
+/** END::LEGACY ALIASES */

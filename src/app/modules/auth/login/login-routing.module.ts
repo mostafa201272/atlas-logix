@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     loadComponent() {
-      return import('./pages/home/home.component').then((c) => c.HomeComponent);
+      return import('./pages/login/login.component').then((c) => c.LoginComponent);
     },
   },
 ];
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HomeRoutingModule {}
+export class LoginRoutingModule {}

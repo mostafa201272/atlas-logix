@@ -1,0 +1,8 @@
+html[dir="rtl"] {
+  /* START OF GLOBAL STILES */
+  *:not(.pi):not([class^="atlas-icon-"]):not([class*="atlas-icon-"]) {
+    font-family: "Cairo", "Inter", sans-serif !important;
+    text-align: right;
+  }
+  /* END OF GLOBAL STILES */
+}

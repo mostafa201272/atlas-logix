@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AppBase } from '@core/bases/app-base-component';
 
 @Component({
@@ -8,5 +8,4 @@ import { AppBase } from '@core/bases/app-base-component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent extends AppBase{
-}
+export class HomeComponent extends AppBase {}

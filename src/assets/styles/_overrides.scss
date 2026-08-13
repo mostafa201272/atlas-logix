@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'common.scss';
 
 /* START OF SCROLL */
@@ -20,7 +21,17 @@
 /**
   START::GLOBAL OVERRIDES
 */
-
+*,
+*:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+}
+*:not(.pi):not([class^='pi-']):not([class*='pi-']):not([class^='atlas-']):not(
+    [class*='atlas-']
+  ) {
+  font-family: $font-family;
+}
 /**
   END::GLOBAL OVERRIDES
 */

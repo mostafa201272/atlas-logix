@@ -1,51 +1,83 @@
 /** START::TAILWIND CUSTOM COLOR SCHEMA */
 @theme {
-  --color-primary: var(--primary-color);
-  --color-primary-950: var(--primary-color-950);
-  --color-primary-900: var(--primary-color-900);
-  --color-primary-800: var(--primary-color-800);
-  --color-primary-700: var(--primary-color-700);
-  --color-primary-600: var(--primary-color-600);
-  --color-primary-500: var(--primary-color-500);
-  --color-primary-400: var(--primary-color-400);
-  --color-primary-300: var(--primary-color-300);
-  --color-primary-200: var(--primary-color-200);
-  --color-primary-100: var(--primary-color-100);
-  --color-primary-50: var(--primary-color-50);
-  --color-secondary: var(--secondary-color);
-  --color-subtitle: var(--subtitle-color);
-  --color-surface-950: var(--surface-950);
-  --color-info: var(--info-color);
-  --color-land-surface: var(--land-surface);
-  --color-card-surface: var(--card-surface);
-  --color-error: var(--error-color);
-  --color-default-border: var(--border-color);
-  --color-border-info: var(--border-info-color);
-  --color-border-light: var(--border-light-color);
-  --color-input-border: var(--input-border-color);
-  --color-input-text: var(--input-text-color);
-  --color-subtitle-color: var(--subtitle-color);
-  --color-neutral-9: var(--neutral-9-color);
-  --color-input-bg: var(--input-bg-color);
-  --color-input-disable-bg: var(--input-disable-bg-color);
-  --color-input-error: var(--input-error-color);
-  --color-danger: var(--danger-color);
+  /* Primitives */
+  --color-navy: var(--navy);
+  --color-deep-blue: var(--deep-blue);
+  --color-blue: var(--blue);
+  --color-cyan: var(--cyan);
+  --color-teal-light: var(--teal-light);
+  --color-green: var(--green);
+  --color-orange: var(--orange);
+  --color-red: var(--red);
+  --color-purple: var(--purple);
 
-  /** START::SURFACES */
-  --color-surface-0: var(--surface-0);
-  --color-surface-50: var(--surface-50);
-  --color-surface-100: var(--surface-100);
-  --color-surface-200: var(--surface-200);
-  --color-surface-300: var(--surface-300);
-  --color-surface-400: var(--surface-400);
-  --color-surface-500: var(--surface-500);
-  --color-surface-600: var(--surface-600);
-  --color-surface-700: var(--surface-700);
-  --color-surface-800: var(--surface-800);
-  --color-surface-900: var(--surface-900);
-  --color-surface-950: var(--surface-950);
-  /** END::SURFACES */
+  /* Brand */
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-deep-blue: var(--brand-deep-blue);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-teal-light: var(--brand-teal-light);
 
-  --color-radio-button-label: var(--radio-button-label-color);
+  /* Dark Surfaces */
+  --color-dark-start: var(--dark-start);
+  --color-dark-middle: var(--dark-middle);
+  --color-dark-end: var(--dark-end);
+  --color-dark-text: var(--dark-text);
+  --color-dark-text-muted: var(--dark-text-muted);
+
+  /* Neutral */
+  --color-neutral-muted: var(--neutral-muted);
+  --color-neutral-line: var(--neutral-line);
+  --color-neutral-surface: var(--neutral-surface);
+  --color-neutral-soft: var(--neutral-soft);
+  --color-neutral-subtle: var(--neutral-subtle);
+  --color-neutral-subtle-strong: var(--neutral-subtle-strong);
+
+  /* Feedback */
+  --color-feedback-green: var(--feedback-green);
+  --color-feedback-orange: var(--feedback-orange);
+  --color-feedback-red: var(--feedback-red);
+  --color-feedback-purple: var(--feedback-purple);
+
+  /* Status Primitives */
+  --color-status-success-bg: var(--status-success-bg);
+  --color-status-success-text: var(--status-success-text);
+  --color-status-warning-bg: var(--status-warning-bg);
+  --color-status-warning-text: var(--status-warning-text);
+  --color-status-negative-bg: var(--status-negative-bg);
+  --color-status-negative-text: var(--status-negative-text);
+  --color-status-neutral-bg: var(--status-neutral-bg);
+  --color-status-neutral-text: var(--status-neutral-text);
+
+  /* Semantic Colors */
+  --color-bg-canvas: var(--bg-canvas);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-sidebar: var(--bg-sidebar);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-bg-accent: var(--bg-accent);
+  --color-bg-accent-secondary: var(--bg-accent-secondary);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-on-dark: var(--text-on-dark);
+  --color-text-accent: var(--text-accent);
+
+  --color-icon-default: var(--icon-default);
+  --color-icon-on-dark: var(--icon-on-dark);
+  --color-icon-accent: var(--icon-accent);
+
+  --color-border-default: var(--border-default);
+  --color-border-on-dark: var(--border-on-dark);
+
+  /* Legacy Aliases (Backward Compatibility) */
+  --color-primary: var(--bg-accent);
+  --color-secondary: var(--text-primary);
+  --color-subtitle: var(--neutral-muted);
+  --color-land-surface: var(--bg-canvas);
+  --color-card-surface: var(--bg-surface);
+  --color-error: var(--red);
+  --color-danger: var(--red);
+  --color-info: var(--brand-cyan);
+  --color-default-border: var(--border-default);
 }
 /** END::TAILWIND CUSTOM COLOR SCHEMA */

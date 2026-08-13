@@ -5,6 +5,8 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { ConfirmationService } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { MODULES_ROUTES } from '@utilities/routers';
+
 @Component({
   template: '',
   providers: [DialogService, ConfirmationService],
@@ -21,6 +23,9 @@ export abstract class AppBase implements OnDestroy {
    * Holder - Subscription
    */
   protected unsubscribeAll: Subject<void> = new Subject<void>();
+
+  /** Holder - Modules Routers */
+  protected MODULES_ROUTES = MODULES_ROUTES;
 
   /**
    * Helper - Navigate to helper
