@@ -3,10 +3,18 @@ import { RouterOutlet } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { TranslatePipe } from '@ngx-translate/core';
 import { AppBase } from '@core/bases/app-base-component';
+import { AtlasIdentityComponent } from '@shared/ui/atoms/atlas-identity/atlas-identity.component';
+import { AtlasLangSwitchComponent } from '@shared/ui/atoms/atlas-lang-switch/atlas-lang-switch.component';
 
 @Component({
   selector: 'auth-layout',
-  imports: [RouterOutlet, ToastModule, TranslatePipe],
+  imports: [
+    RouterOutlet,
+    ToastModule,
+    TranslatePipe,
+    AtlasIdentityComponent,
+    AtlasLangSwitchComponent,
+  ],
   templateUrl: './auth-layout.component.html',
   styleUrl: './auth-layout.component.scss',
 })

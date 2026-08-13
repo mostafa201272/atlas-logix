@@ -1,0 +1,14 @@
+<!--START OF LANGUAGE SWITCH  -->
+<button
+  (click)="switchLanguage()"
+  class="flex flex-row items-center cursor-pointer gap-2 w-fit py-1 px-2 transition-all"
+>
+  <!-- START::LANGUAGE ICON -->
+  <span><i class="pi-language text-lg flex justify-center text-navy"></i></span>
+  <!-- END::LANGUAGE ICON -->
+
+  <!-- START::LANGUAGE TEXT -->
+  <span class="text-navy ltr:font-[Cairo]! text-lg">{{ 'language' | translate }}</span>
+  <!-- END::LANGUAGE TEXT -->
+</button>
+<!--END OF LANGUAGE SWITCH  -->

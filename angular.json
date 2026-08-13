@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "interview": {
+    "atlas-logix": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -37,7 +37,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "atlas",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -82,10 +82,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "interview:build:production"
+              "buildTarget": "atlas-logix:build:production"
             },
             "development": {
-              "buildTarget": "interview:build:development"
+              "buildTarget": "atlas-logix:build:development"
             }
           },
           "defaultConfiguration": "development"

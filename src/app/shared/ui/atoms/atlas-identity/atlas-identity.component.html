@@ -1,0 +1,25 @@
+<!-- START::IDENTITY -->
+<div class="flex flex-row items-center gap-7">
+  <!-- START::LOGO -->
+  <div class="flex shrink-0">
+    <span class="flex shrink-0" [inlineSVG]="'assets/media/svg/logo.svg'"></span>
+  </div>
+  <!-- END::LOGO -->
+
+  <div class="flex flex-col items-start gap-1">
+    <!-- START::BRAND NAME -->
+    <span class="text-navy text-5xl font-bold" [class.text-white]="darkMode()"
+      >Atlas<strong class="text-brand-navy" [class.text-brand-teal-light]="darkMode()"
+        >Logix</strong
+      ></span
+    >
+    <!-- END::BRAND NAME -->
+
+    <!-- START::BRAND SLOGAN -->
+    <span class="text-sm text-neutral-muted" [class.!text-dark-text-muted]="darkMode()"
+      >Tracking & Compliance Platform</span
+    >
+    <!-- END::BRAND SLOGAN -->
+  </div>
+</div>
+<!-- END::IDENTITY -->

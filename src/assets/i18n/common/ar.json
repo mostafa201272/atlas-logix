@@ -1,1 +1,9 @@
-{}
+{
+  "project": {
+    "name": "AtlasLogix"
+  },
+  "footer": {
+    "copyRight": "All rights reserved to AtlasLogix {{year}}"
+  },
+  "language": "English"
+}

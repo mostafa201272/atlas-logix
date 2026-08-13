@@ -27,10 +27,12 @@
   outline-offset: 0;
   box-shadow: none;
 }
-*:not(.pi):not([class^='pi-']):not([class*='pi-']):not([class^='atlas-']):not(
-    [class*='atlas-']
-  ) {
+*:not(.pi):not([class^='pi-']):not([class*='pi-']):not([class^='atlas-']):not([class*='atlas-']) {
   font-family: $font-family;
+}
+[class^='pi-'],
+[class*='pi-'] {
+  font-family: 'primeicons' !important;
 }
 /**
   END::GLOBAL OVERRIDES

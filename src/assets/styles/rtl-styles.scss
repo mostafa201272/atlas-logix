@@ -1,7 +1,7 @@
-html[dir="rtl"] {
+html[dir='rtl'] {
   /* START OF GLOBAL STILES */
-  *:not(.pi):not([class^="atlas-icon-"]):not([class*="atlas-icon-"]) {
-    font-family: "Cairo", "Inter", sans-serif !important;
+  *:not(.pi):not([class^='pi-']):not([class*='pi-']):not([class^='atlas-']):not([class*='atlas-']) {
+    font-family: 'Cairo', 'Inter', sans-serif !important;
     text-align: right;
   }
   /* END OF GLOBAL STILES */

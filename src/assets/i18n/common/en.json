@@ -1,14 +1,11 @@
 {
   "project": {
-    "name": "Interview Task"
+    "name": "AtlasLogix"
   },
   "footer": {
-    "copyRight": "All rights reserved to Mostafa Mahmoud El-sherbini {{year}}"
+    "copyRight": "All rights reserved to AtlasLogix {{year}}"
   },
-  "language": {
-    "ar": "العربية",
-    "en": "English"
-  },
+  "language": "العربية",
   "btn": {
     "add": "Add",
     "create": "Create",
