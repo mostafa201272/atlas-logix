@@ -10,6 +10,7 @@
   --orange: #d97706;
   --red: #c2414c;
   --purple: #7c3aed;
+  --error: #9d3340;
   /* END::PRIMITIVES — Colors */
 
   /* Brand */
@@ -77,6 +78,27 @@
   --border-default: var(--neutral-line);
   --border-on-dark: var(--neutral-muted);
 
+  /* Buttons */
+  --button-primary-bg: var(--brand-blue);
+  --button-primary-border-color: var(--brand-blue);
+  --button-primary-hover-bg: var(--brand-deep-blue);
+  --button-primary-border-hover-color: var(--brand-deep-blue);
+  --button-primary-active-bg: var(--brand-deep-blue);
+  --button-primary-border-active-color: var(--brand-navy);
+
+  --button-outlined-primary-color: var(--brand-blue);
+  --button-outlined-primary-border-color: var(--brand-blue);
+  --button-outlined-primary-hover-border-color: var(--brand-deep-blue);
+  --button-outlined-primary-active-border-color: var(--brand-deep-blue);
+
+  /* Input */
+  --input-bg-color: #ffffff;
+  --input-text-color: var(--navy);
+  --input-placeholder-color: var(--neutral-muted);
+  --input-disable-bg-color: var(--neutral-subtle);
+  --input-error-color: var(--error);
+  --input-focus-border-color: var(--blue);
+
   /* Status */
   --status-success-bg: var(--status-success-bg);
   --status-success-text: var(--status-success-text);
@@ -90,7 +112,6 @@
   /* =============================================
      TYPOGRAPHY
      ============================================= */
-
   /* Family */
   --font-family: 'Inter', sans-serif;
 }

@@ -1,6 +1,7 @@
 {
   "project": {
-    "name": "AtlasLogix"
+    "name": "AtlasLogix",
+    "trackingCompliancePlatform": "منصة التتبع والامتثال"
   },
   "footer": {
     "copyRight": "All rights reserved to AtlasLogix {{year}}"

@@ -1,0 +1,90 @@
+<!-- START::ATLAS-FORM-TEXT-INPUT COMPONENT -->
+<form
+  class="w-full flex flex-col gap-2 items-start justify-start"
+  [formGroup]="form"
+  (submit)="$event.preventDefault()"
+>
+  <atlas-form-input-template
+    class="w-full"
+    [label]="label()"
+    [inputFor]="inputForID()"
+    [showRequiredIcon]="required()"
+    [errorMode]="showError()"
+    [disableMode]="disabled()"
+    [showResetButton]="control()?.value && control()?.touched && !disabled() && showReset()"
+    (onReset)="reset()"
+  >
+    <!-- START OF INPUT -->
+    <ng-template #inputContent>
+      <!-- START::TEXT-INPUT -->
+      <input
+        pInputText
+        type="text"
+        formControlName="textInput"
+        [id]="inputForID()"
+        [placeholder]="placeholder() || label()"
+        [attr.minlength]="minLength()"
+        [attr.maxlength]="maxLength()"
+        [class]="'h-10 text-input-text! text-sm! placeholder:text-sm! w-full'"
+        [class.text-input-error!]="showError()"
+        [class.placeholder:text-input-error!]="showError()"
+        (blur)="markAsTouched()"
+        [disabled]="disabled()"
+      />
+      <!-- END::TEXT-INPUT -->
+    </ng-template>
+
+    <!-- END OF INPUT -->
+
+    <!-- START:: VALIDATION -->
+    <ng-template #validationsContent>
+      @if (control(); as control) {
+        @if (showError() && control.errors) {
+          <div class="flex flex-col gap-1">
+            <!-- START:: REQUIRED VALIDATOR -->
+            @if (control.errors['required']) {
+              <atlas-form-input-error-template [errorKey]="requiredErrorMessage()" />
+            }
+            <!-- END:: REQUIRED VALIDATOR -->
+
+            <!-- START:: PATTERN VALIDATOR -->
+            @if (control.errors['pattern']) {
+              <atlas-form-input-error-template [errorKey]="patternErrorMessage()" />
+            }
+            <!-- END:: PATTERN VALIDATOR -->
+
+            <!-- START:: MIN LENGTH VALIDATOR -->
+            @if (control.errors['minlength']) {
+              <atlas-form-input-error-template
+                [errorKey]="
+                  minLengthErrorMessage() ? minLengthErrorMessage() : 'errors.forms.minLength'
+                "
+                [interpolateParams]="{
+                  requiredLength: minLength(),
+                  actualLength: control.errors['minlength'].actualLength,
+                }"
+              />
+            }
+            <!-- END:: MIN LENGTH VALIDATOR -->
+
+            <!-- START:: MAX LENGTH VALIDATOR -->
+            @if (control.errors['maxlength']) {
+              <atlas-form-input-error-template
+                [errorKey]="
+                  maxLengthErrorMessage() ? maxLengthErrorMessage() : 'errors.forms.maxLength'
+                "
+                [interpolateParams]="{
+                  requiredLength: maxLength(),
+                  actualLength: control.errors['maxlength'].actualLength,
+                }"
+              />
+            }
+            <!-- END:: MAX LENGTH VALIDATOR -->
+          </div>
+        }
+      }
+    </ng-template>
+    <!-- END:: VALIDATION -->
+  </atlas-form-input-template>
+</form>
+<!-- END::ATLAS-FORM-TEXT-INPUT COMPONENT -->

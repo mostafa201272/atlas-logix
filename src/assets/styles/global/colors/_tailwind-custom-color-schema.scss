@@ -70,14 +70,9 @@
   --color-border-on-dark: var(--border-on-dark);
 
   /* Legacy Aliases (Backward Compatibility) */
-  --color-primary: var(--bg-accent);
-  --color-secondary: var(--text-primary);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
   --color-subtitle: var(--neutral-muted);
-  --color-land-surface: var(--bg-canvas);
-  --color-card-surface: var(--bg-surface);
-  --color-error: var(--red);
-  --color-danger: var(--red);
-  --color-info: var(--brand-cyan);
-  --color-default-border: var(--border-default);
+  --color-error: var(--error);
 }
 /** END::TAILWIND CUSTOM COLOR SCHEMA */

@@ -1,0 +1,22 @@
+<!-- START::ATLAS-LABEL CONTAINER -->
+<div class="flex flex-row items-center gap-2" [class]="containerStyleClass()">
+  <!-- START::PRE-PROJECTION -->
+  <ng-content select=".pre-content"></ng-content>
+  <!-- END::PRE-PROJECTION -->
+
+  <!-- START::LABEL -->
+  @switch (type()) {
+    @case ('text') {
+      <span [class]="styleClasses()">{{ value() }}</span>
+    }
+    @case ('form') {
+      <label [for]="for()" [class]="styleClasses()">{{ value() }}</label>
+    }
+  }
+  <!-- END::LABEL -->
+
+  <!-- START::POST-PROJECTION -->
+  <ng-content select=".post-content"></ng-content>
+  <!-- END::POST-PROJECTION -->
+</div>
+<!-- END::ATLAS-LABEL CONTAINER -->

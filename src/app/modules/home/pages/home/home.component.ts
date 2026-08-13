@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AppBase } from '@core/bases/app-base-component';
+import { AppBase } from '@core/bases/app-base.base';
 
 @Component({
   selector: 'app-home',

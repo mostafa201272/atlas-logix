@@ -1,3 +1,36 @@
 {
-  "home": {}
+  "auth": {
+    "promo": {
+      "complianceOperations": {
+        "title": "عمليات الامتثال",
+        "subtitle": "الثقة في كل نقطة تفتيش.",
+        "description": "مراجعة حالة الشحنات، والتحقيق في تجاوزات المستشعرات، وحماية سلامة سجلات اللوجستيات المنظمة.",
+        "metrics": {
+          "monitoring": {
+            "title": "المراقبة",
+            "value": "24/7"
+          },
+          "traceability": {
+            "title": "التتبع",
+            "value": "100%"
+          },
+          "protected": {
+            "title": "الحماية",
+            "value": "حسب الدور"
+          }
+        }
+      },
+      "footer": "منصة افتراضية · بيانات تقييم اصطناعية"
+    },
+    "login": {
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "secureAccess": "دخول آمن",
+      "login": "تسجيل الدخول",
+      "welcomeBack": "مرحباً بعودتك",
+      "welcomeBackDescription": "استخدم حسابك المخصص للمتابعة.",
+      "footerDescription": "يقتصر الوصول على مستخدمي التقييم المصرح لهم."
+    }
+  }
 }
+

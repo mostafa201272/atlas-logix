@@ -21,6 +21,15 @@
         }
       },
       "footer": "Fictional platform · Synthetic assessment data"
+    },
+    "login": {
+      "email": "Email",
+      "password": "Password",
+      "secureAccess": "Secure access",
+      "login": "Login",
+      "welcomeBack": "Welcome back",
+      "welcomeBackDescription": "Use your assigned account to continue.",
+      "footerDescription": "Access is restricted to authorized assessment users."
     }
   }
 }

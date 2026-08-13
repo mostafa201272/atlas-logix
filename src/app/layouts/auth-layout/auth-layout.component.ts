@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { TranslatePipe } from '@ngx-translate/core';
-import { AppBase } from '@core/bases/app-base-component';
+import { AppBase } from '@core/bases/app-base.base';
 import { AtlasIdentityComponent } from '@shared/ui/atoms/atlas-identity/atlas-identity.component';
 import { AtlasLangSwitchComponent } from '@shared/ui/atoms/atlas-lang-switch/atlas-lang-switch.component';
 

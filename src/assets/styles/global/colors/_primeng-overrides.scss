@@ -1,0 +1,55 @@
+:root {
+  /* PRIMARY */
+  --p-primary-color: var(--primary-color);
+
+  /** START::PRIMARY BUTTONs */
+  --p-button-primary-background: var(--button-primary-bg);
+  --p-button-primary-border-color: var(--button-primary-border-color);
+  --p-button-primary-hover-background: var(--button-primary-hover-bg);
+  --p-button-primary-hover-border-color: var(--button-primary-border-hover-color);
+  --p-button-primary-active-background: var(--button-primary-active-bg);
+  --p-button-primary-active-border-color: var(--button-primary-border-active-color);
+
+  --p-button-outlined-primary-background: transparent;
+  --p-button-outlined-primary-color: var(--button-outlined-primary-color);
+  --p-button-outlined-primary-border-color: var(--button-primary-border-color);
+
+  --p-button-outlined-primary-hover-background: transparent;
+  --p-button-outlined-primary-hover-border-color: var(--button-primary-border-active-color);
+
+  --p-button-outlined-primary-active-background: transparent;
+  --p-button-outlined-primary-active-border-color: var(
+    --button-outlined-primary-active-border-color
+  );
+
+  --p-button-text-primary-hover-background: transparent;
+  /** END::PRIMARY BUTTONs */
+
+  /** START::PRIME INPUT */
+  --p-inputtext-border-color: var(--border-default);
+  --p-inputtext-background: var(--input-bg-color);
+  --p-inputtext-color: var(--input-text-color);
+  --p-inputtext-placeholder-color: var(--input-placeholder-color);
+  --p-inputtext-invalid-placeholder-color: var(--input-error-color);
+  --p-inputtext-disabled-color: var(--input-disable-bg-color);
+  --p-inputtext-invalid-border-color: var(--input-error-color);
+  --p-inputtext-focus-border-color: var(--input-focus-border-color);
+  --p-inputtext-shadow: none;
+  --p-inputtext-border-radius: 8px;
+  --p-inputtext-padding-x: 14px;
+  --p-inputtext-padding-y: 12px;
+  /** END::PRIME INPUT */
+
+  /** START::PRIME SELECT */
+  --p-select-option-selected-background: var(--primary-color);
+  --p-select-option-selected-color: var(--white-color);
+  --p-select-option-selected-focus-background: var(--primary-color);
+  --p-select-option-selected-focus-color: var(--white-color);
+  --p-select-focus-border-color: var(--p-select-border-color);
+  /** END::PRIME SELECT */
+
+  /** START::PRIME CHECKBOX */
+  --p-checkbox-checked-hover-background: var(--primary-color);
+  --p-checkbox-checked-hover-border-color: var(--primary-color);
+  --p-checkbox-checked-focus-border-color: transparent /** END::PRIME CHECKBOX */;
+}

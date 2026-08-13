@@ -1,0 +1,33 @@
+<!-- START::ATLAS-COMPACT-LABEL CONTAINER -->
+<div
+  class="flex flex-row w-full items-center gap-4 justify-between"
+  [class]="compactContainerClass()"
+>
+  <!-- START::ATLAS-LABEL -->
+  <atlas-label
+    class="w-full"
+    [for]="for()"
+    [type]="type()"
+    [styleClasses]="styleClasses()"
+    [containerStyleClass]="labelContainerStyleClass()"
+    [value]="value()"
+  >
+    <!-- START::PRE-PROJECTION -->
+    <ng-container class="pre-content">
+      <ng-content select=".pre-content"></ng-content>
+    </ng-container>
+    <!-- END::PRE-PROJECTION -->
+
+    <!-- START::POST-PROJECTION -->
+    <ng-container class="post-content">
+      <ng-content select=".post-content"></ng-content>
+    </ng-container>
+    <!-- END::POST-PROJECTION -->
+  </atlas-label>
+  <!-- END::ATLAS-LABEL -->
+
+  <!-- START::ATLAS-COMPACT-LABEL CONTROLS -->
+  <ng-content select=".extra-controls"></ng-content>
+  <!-- END::ATLAS-COMPACT-LABEL CONTROLS -->
+</div>
+<!-- END::ATLAS-COMPACT-LABEL CONTAINER -->

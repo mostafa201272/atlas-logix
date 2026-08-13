@@ -1,0 +1,207 @@
+<!-- START::ATLAS-FORM-INPUT TEMPLATE -->
+<div class="w-full flex flex-col gap-1 items-start justify-start">
+  <!-- START::INPUT CONTAINER -->
+  <div
+    class="w-full atlas-form-input-template relative flex flex-row items-center gap-2 text-primary"
+    [class]="templateStyleClass()"
+    [class.border-input-error]="errorMode()"
+    [class.text-input-error!]="errorMode()"
+    [class.bg-input-disable-bg!]="disableMode()"
+    [class.border-0!]="disableMode()"
+  >
+    <!-- START OF PRE CONTENT -->
+    <ng-container *ngTemplateOutlet="preContentTemplate()"></ng-container>
+    <!-- END OF PRE CONTENT -->
+
+    <!-- START OF INPUT BODY CONTAINER -->
+    <div class="w-full flex flex-col items-start gap-1">
+      <!-- START::LABEL -->
+      <atlas-compact-label
+        class="w-full"
+        [value]="label()"
+        [for]="inputFor()"
+        [type]="'form'"
+        [styleClasses]="'text-xs text-inherit! font-medium!'"
+        [labelContainerStyleClass]="'gap-1!'"
+      >
+        <!-- START::PRE-PROJECTION -->
+        <ng-container class="pre-content">
+          <ng-container *ngTemplateOutlet="labelPreContentTemplate()"></ng-container>
+        </ng-container>
+        <!-- END::PRE-PROJECTION -->
+
+        <!-- START::POST-PROJECTION -->
+        <ng-container class="post-content">
+          <div class="flex flex-row items-start gap-1">
+            <!-- START::REQUIRED ICON -->
+            @if (showRequiredIcon()) {
+              <atlas-required-icon></atlas-required-icon>
+            }
+            <!-- END::REQUIRED ICON -->
+
+            <!-- START::POST-PROJECTION -->
+            <ng-container *ngTemplateOutlet="labelPostContentTemplate()"></ng-container>
+            <!-- END::POST-PROJECTION -->
+          </div>
+        </ng-container>
+        <!-- END::POST-PROJECTION -->
+
+        <!-- START::CONTROLS-PROJECTION -->
+        <ng-container class="extra-controls">
+          <!-- START::EXTRA-CONTROLS CONTAINER -->
+          <div class="flex flex-row items-center gap-2">
+            <!-- START::EXTRA-CONTROL -->
+            <ng-container *ngTemplateOutlet="labelExtraControlsTemplate()"></ng-container>
+            <!-- END::EXTRA-CONTROL -->
+
+            <!-- START::RESET CONTROL -->
+            @if (showResetButton()) {
+              <button
+                type="button"
+                class="text-xs text-input-text cursor-pointer hover:text-input-error transition-all duration-200"
+                (click)="onReset.emit($event)"
+              >
+                <i class="pi pi-times text-xs flex"></i>
+              </button>
+            }
+            <!-- END::RESET CONTROL -->
+          </div>
+          <!-- END::EXTRA-CONTROLS CONTAINER -->
+        </ng-container>
+        <!-- END::CONTROLS-PROJECTION -->
+      </atlas-compact-label>
+      <!-- END::LABEL -->
+
+      <!-- START::TEXT-INPUT CONTAINER -->
+      <div class="w-full flex flex-row items-center gap-2">
+        <!-- START::PRE-PROJECTION -->
+        <ng-container *ngTemplateOutlet="inputPreContentTemplate()"></ng-container>
+        <!-- END::PRE-PROJECTION -->
+
+        <!-- START::TEXT-INPUT -->
+        <ng-container *ngTemplateOutlet="inputContentTemplate()"></ng-container>
+        <!-- END::TEXT-INPUT -->
+
+        <!-- START::POST-PROJECTION -->
+        <ng-container *ngTemplateOutlet="inputPostContentTemplate()"></ng-container>
+        <!-- END::POST-PROJECTION -->
+      </div>
+      <!-- END::TEXT-INPUT CONTAINER -->
+    </div>
+    <!-- START OF INPUT BODY CONTAINER -->
+
+    <!-- START OF PRE CONTENT -->
+    <ng-container *ngTemplateOutlet="postContentTemplate()"></ng-container>
+    <!-- END OF PRE CONTENT -->
+  </div>
+  <!-- END::INPUT CONTAINER -->
+
+  <!-- START::VALIDATION -->
+  <ng-container *ngTemplateOutlet="validationsTemplate()"></ng-container>
+  <!-- END::VALIDATION -->
+</div>
+<!-- END::ATLAS-FORM-INPUT TEMPLATE -->
+
+@if (false) {
+  <!-- START::ATLAS-FORM-TEXT-INPUT COMPONENT -->
+  <div class="w-full flex flex-col gap-1 items-start justify-start">
+    <!-- START::INPUT CONTAINER -->
+    <div
+      class="w-full relative text-input-text flex flex-row bg-input-bg h-11.75 min-h-11.75 items-start justify-between border border-input-border rounded-lg px-1.5 pt-1.5 pb-1 transition-all duration-200"
+      [class]="templateStyleClass()"
+      [class.border-input-error]="errorMode()"
+      [class.text-input-error!]="errorMode()"
+      [class.bg-input-disable-bg!]="disableMode()"
+      [class.border-0!]="disableMode()"
+    >
+      <!-- START OF PRE CONTENT -->
+      <ng-content select=".pre-content"></ng-content>
+      <!-- END OF PRE CONTENT -->
+
+      <!-- START OF INPUT BODY CONTAINER -->
+      <div class="w-full flex flex-col items-start">
+        <!-- START::LABEL -->
+        <atlas-compact-label
+          class="w-full"
+          [value]="label()"
+          [styleClasses]="'text-xs leading-3 text-inherit!'"
+          [labelContainerStyleClass]="'gap-1!'"
+        >
+          <!-- START::PRE-PROJECTION -->
+          <ng-container class="pre-content">
+            <ng-content select=".label-pre-content"></ng-content>
+          </ng-container>
+          <!-- END::PRE-PROJECTION -->
+
+          <!-- START::POST-PROJECTION -->
+          <ng-container class="post-content">
+            <div class="flex flex-row items-start gap-1">
+              <!-- START::REQUIRED ICON -->
+              @if (showRequiredIcon()) {
+                <atlas-required-icon></atlas-required-icon>
+              }
+              <!-- END::REQUIRED ICON -->
+
+              <!-- START::POST-PROJECTION -->
+              <ng-content select=".label-post-content"></ng-content>
+              <!-- END::POST-PROJECTION -->
+            </div>
+          </ng-container>
+          <!-- END::POST-PROJECTION -->
+
+          <!-- START::CONTROLS-PROJECTION -->
+          <ng-container class="extra-controls">
+            <!-- START::EXTRA-CONTROLS CONTAINER -->
+            <div class="flex flex-row items-center gap-2">
+              <!-- START::EXTRA-CONTROL -->
+              <ng-content select=".label-extra-controls"></ng-content>
+              <!-- END::EXTRA-CONTROL -->
+
+              <!-- START::RESET CONTROL -->
+              @if (showResetButton()) {
+                <button
+                  type="button"
+                  class="text-xs text-input-text cursor-pointer hover:text-input-error transition-all duration-200"
+                  (click)="onReset.emit($event)"
+                >
+                  <i class="pi pi-times text-xs flex"></i>
+                </button>
+              }
+              <!-- END::RESET CONTROL -->
+            </div>
+            <!-- END::EXTRA-CONTROLS CONTAINER -->
+          </ng-container>
+          <!-- END::CONTROLS-PROJECTION -->
+        </atlas-compact-label>
+        <!-- END::LABEL -->
+
+        <!-- START::TEXT-INPUT CONTAINER -->
+        <div class="w-full flex flex-row items-center gap-2">
+          <!-- START::PRE-PROJECTION -->
+          <ng-content select=".input-pre-content"></ng-content>
+          <!-- END::PRE-PROJECTION -->
+
+          <!-- START::TEXT-INPUT -->
+          <ng-content select=".input-container"></ng-content>
+          <!-- END::TEXT-INPUT -->
+
+          <!-- START::POST-PROJECTION -->
+          <ng-content select=".input-post-content"></ng-content>
+          <!-- END::POST-PROJECTION -->
+        </div>
+        <!-- END::TEXT-INPUT CONTAINER -->
+      </div>
+      <!-- START OF INPUT BODY CONTAINER -->
+
+      <!-- START OF PRE CONTENT -->
+      <ng-content select=".post-content"></ng-content>
+      <!-- END OF PRE CONTENT -->
+    </div>
+    <!-- END::INPUT CONTAINER -->
+
+    <!-- START::VALIDATION -->
+    <ng-content select=".validations-container"></ng-content>
+    <!-- END::VALIDATION -->
+  </div>
+  <!-- END::ATLAS-FORM-TEXT-INPUT COMPONENT -->
+}

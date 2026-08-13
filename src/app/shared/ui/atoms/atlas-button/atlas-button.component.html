@@ -1,0 +1,50 @@
+<!-- START::BUTTON -->
+<p-button
+  [label]="hideContentOnLoading() ? undefined : label()"
+  [icon]="icon()"
+  [iconPos]="iconPos()"
+  [loading]="loading()"
+  [disabled]="disabled()"
+  [type]="type()"
+  [size]="size()"
+  [tabindex]="tabindex()"
+  [variant]="variant()"
+  [severity]="severity()"
+  [loadingIcon]="loadingIcon()"
+  [class]="'cbt-btn cursor-pointer'"
+  [buttonProps]="computedButtonProps()"
+  (onClick)="onClick.emit($event)"
+  (onFocus)="onFocus.emit($event)"
+  (onBlur)="onBlur.emit($event)"
+>
+  <!-- START::EXTERNAL PROJECTION -->
+  <ng-content></ng-content>
+  <!-- END::EXTERNAL PROJECTION -->
+
+  <!-- START::CONTENT TEMPLATE -->
+  @if (contentTemplate && !hideContentOnLoading()) {
+    <ng-template #content let-item>
+      <ng-container *ngTemplateOutlet="contentTemplate.template; context: { $implicit: item }" />
+    </ng-template>
+  }
+  <!-- END::CONTENT TEMPLATE -->
+
+  <!-- START::ICON TEMPLATE -->
+  @if (iconTemplate && !hideContentOnLoading()) {
+    <ng-template #icon let-item>
+      <ng-container *ngTemplateOutlet="iconTemplate.template; context: { $implicit: item }" />
+    </ng-template>
+  }
+  <!-- END::ICON TEMPLATE -->
+
+  <!-- START::LOADING ICON TEMPLATE -->
+  @if (loadingIconTemplate) {
+    <ng-template #loadingicon let-item>
+      <ng-container
+        *ngTemplateOutlet="loadingIconTemplate.template; context: { $implicit: item }"
+      />
+    </ng-template>
+  }
+  <!-- END::LOADING ICON TEMPLATE -->
+</p-button>
+<!-- END::BUTTON -->
