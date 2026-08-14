@@ -1,5 +1,4 @@
 import { Route } from '@angular/router';
-import { BaseLayout } from '@layouts/base-layout/base-layout.component';
 import { AuthLayout } from '@layouts/auth-layout/auth-layout.component';
 import { MODULES_ROUTES } from '@utilities/routers';
 import { DashboardLayout } from '@layouts/dashboard-layout/dashboard-layout.component';

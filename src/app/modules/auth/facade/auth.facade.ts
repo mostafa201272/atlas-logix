@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthStore } from '../store/auth.store';
-import { ILoginRequest } from '../models/interfaces';
+import { ILoginRequest, ITenant } from '../models/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +20,15 @@ export class AuthFacade {
   readonly error = this.authStore.error;
   readonly isLoggedIn = this.authStore.isLoggedIn;
   readonly token = this.authStore.token;
+  readonly tenants = this.authStore.tenants;
+  readonly selectedTenant = this.authStore.selectedTenant;
+
+  /**
+   * Update Selected Tenant
+   */
+  setSelectedTenant(tenant: ITenant): void {
+    this.authStore.setSelectedTenant(tenant);
+  }
 
   /**
    * Trigger Login
@@ -42,4 +51,5 @@ export class AuthFacade {
     this.authStore.reset();
   }
 }
+
 

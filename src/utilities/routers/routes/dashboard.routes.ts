@@ -18,7 +18,7 @@ export const DASHBOARD_ROUTES = (baseRoute: string): any => ({
     route: `${baseRoute}/overview`,
     label: `${BASE_TRANSLATION_KEY}.menu.overview.title`,
     itemsBaseTranslationKey: `${BASE_TRANSLATION_KEY}.overview.`,
-    icon: ``,
+    icon: `pi pi-th-large`,
   },
 
   shipments: {
@@ -26,15 +26,15 @@ export const DASHBOARD_ROUTES = (baseRoute: string): any => ({
     route: `${baseRoute}/shipments`,
     label: `${BASE_TRANSLATION_KEY}.menu.shipments.title`,
     itemsBaseTranslationKey: `${BASE_TRANSLATION_KEY}.shipments.`,
-    icon: ``,
+    icon: `pi pi-truck`,
   },
 
   liveSensors: {
-    name: 'liveSensors',
+    name: 'live-sensors',
     route: `${baseRoute}/live-sensors`,
     label: `${BASE_TRANSLATION_KEY}.menu.liveSensors.title`,
     itemsBaseTranslationKey: `${BASE_TRANSLATION_KEY}.liveSensors.`,
-    icon: ``,
+    icon: `pi pi-microchip`,
   },
 
   administration: {
@@ -42,6 +42,6 @@ export const DASHBOARD_ROUTES = (baseRoute: string): any => ({
     route: `${baseRoute}/administration`,
     label: `${BASE_TRANSLATION_KEY}.menu.administration.title`,
     itemsBaseTranslationKey: `${BASE_TRANSLATION_KEY}.administration.`,
-    icon: ``,
+    icon: `pi pi-cog`,
   },
 });

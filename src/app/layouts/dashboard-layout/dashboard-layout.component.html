@@ -1,1 +1,27 @@
-<router-outlet></router-outlet>
+<!-- START::TOASTER -->
+<p-toast></p-toast>
+<!-- END::TOASTER -->
+
+<!-- START::DASHBOARD LAYOUT -->
+<section class="w-full h-screen max-h-screen bg-bg-canvas relative flex flex-row items-start">
+  <!-- START::SIDEBAR -->
+  <atlas-sidebar></atlas-sidebar>
+  <!-- END::SIDEBAR -->
+
+  <!-- START::MAIN AREA -->
+  <div class="flex flex-col bg-transparent w-full h-full overflow-hidden">
+    <!-- START::NAVBAR -->
+    <atlas-navbar></atlas-navbar>
+    <!-- END::NAVBAR -->
+
+    <!-- START::CONTENT AREA -->
+    <main class="w-full h-full overflow-y-scroll relative p-8">
+      <!-- START::ROUTED COMPONENTS -->
+      <router-outlet></router-outlet>
+      <!-- END::ROUTED COMPONENTS -->
+    </main>
+    <!-- END::CONTENT AREA -->
+  </div>
+  <!-- END::MAIN AREA -->
+</section>
+<!-- END::DASHBOARD LAYOUT -->

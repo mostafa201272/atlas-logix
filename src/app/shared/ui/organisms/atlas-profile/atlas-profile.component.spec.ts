@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BaseLayoutComponent } from './base-layout.component';
+import { AtlasProfileComponent } from './atlas-profile.component';
 
-describe('BaseLayoutComponent', () => {
-  let component: BaseLayoutComponent;
-  let fixture: ComponentFixture<BaseLayoutComponent>;
+describe('AtlasProfileComponent', () => {
+  let component: AtlasProfileComponent;
+  let fixture: ComponentFixture<AtlasProfileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BaseLayoutComponent],
+      imports: [AtlasProfileComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BaseLayoutComponent);
+    fixture = TestBed.createComponent(AtlasProfileComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

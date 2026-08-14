@@ -5,12 +5,7 @@ import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { tap, switchMap, pipe, of, catchError, map, Observable } from 'rxjs';
 import { AuthApiService } from '../services/auth-api.service';
 import { StorageService } from '@core/services/storage.service';
-import {
-  type IAuthState,
-  type ILoginRequest,
-  type ILoginResponse,
-  type IUserResponse,
-} from '../models/interfaces';
+import { type ITenant, type IAuthState, type ILoginRequest, type ILoginResponse, type IUserResponse } from '../models/interfaces';
 import { MODULES_ROUTES } from '@utilities/routers';
 import { AUTH_KEYS } from '../models/enums';
 
@@ -19,6 +14,7 @@ import { AUTH_KEYS } from '../models/enums';
  */
 const initialState: IAuthState = {
   data: null,
+  selectedTenant: null,
   isLoading: false,
   error: null,
 };
@@ -42,6 +38,10 @@ export const AuthStore = signalStore(
       () => !!store.data()?.token || !!storageService.getStorage(AUTH_KEYS.TOKEN),
     ),
     token: computed(() => store.data()?.token || storageService.getStorage(AUTH_KEYS.TOKEN)),
+    tenants: computed(() => store.data()?.tenants || []),
+    selectedTenant: computed(
+      () => store.selectedTenant() || store.data()?.tenants?.[0] || null,
+    ),
   })),
 
   /**
@@ -55,6 +55,13 @@ export const AuthStore = signalStore(
       router = inject(Router),
     ) => ({
       /**
+       * SET - Update Selected Tenant
+       */
+      setSelectedTenant(tenant: ITenant): void {
+        patchState(store, { selectedTenant: tenant });
+      },
+
+      /**
        * POST - Login request
        */
       login: rxMethod<ILoginRequest>(
@@ -66,13 +73,23 @@ export const AuthStore = signalStore(
                 if (response?.token) {
                   storageService.setStorage(AUTH_KEYS.TOKEN, response.token);
                 }
-                patchState(store, { data: response, isLoading: false, error: null });
+                const initialTenant =
+                  response.tenants?.find((t) => t.tenantId === response.tenantId) ||
+                  response.tenants?.[0] ||
+                  null;
+                patchState(store, {
+                  data: response,
+                  selectedTenant: initialTenant,
+                  isLoading: false,
+                  error: null,
+                });
                 router.navigate([MODULES_ROUTES.modules.dashboard.route]);
               }),
               catchError((error: any) => {
                 const errorMessage = error?.error?.message || error?.message || 'Login failed';
                 patchState(store, {
                   data: null,
+                  selectedTenant: null,
                   error: errorMessage,
                   isLoading: false,
                 });
@@ -104,12 +121,21 @@ export const AuthStore = signalStore(
               ...userResponse,
               token: token,
             };
-            patchState(store, { data: fullData, isLoading: false, error: null });
+            const initialTenant =
+              userResponse.tenants?.find((t) => t.tenantId === userResponse.tenantId) ||
+              userResponse.tenants?.[0] ||
+              null;
+            patchState(store, {
+              data: fullData,
+              selectedTenant: store.selectedTenant() || initialTenant,
+              isLoading: false,
+              error: null,
+            });
             return true;
           }),
           catchError((error: any) => {
             const errorMessage = error?.error?.message || error?.message || 'Session expired';
-            patchState(store, { data: null, error: errorMessage, isLoading: false });
+            patchState(store, { data: null, selectedTenant: null, error: errorMessage, isLoading: false });
             storageService.removeStorageItem(AUTH_KEYS.TOKEN);
             router.navigate([MODULES_ROUTES.modules.auth.login.route]);
             return of(false);

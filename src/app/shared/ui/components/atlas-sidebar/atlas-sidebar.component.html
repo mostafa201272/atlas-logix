@@ -1,0 +1,44 @@
+<!-- START::SIDEBAR -->
+<aside class="min-w-75 h-screen bg-gradient flex flex-col items-start gap-6 p-6">
+  <!-- START::IDENTITY -->
+  <atlas-identity [darkMode]="true" [size]="'md'"></atlas-identity>
+  <!-- END::IDENTITY -->
+
+  <!-- START::SEPARATOR -->
+  <hr class="border-t border-border-default opacity-25 w-full" />
+  <!-- START::SEPARATOR -->
+
+  <!-- START::NAVIGATION -->
+  <div class="flex flex-col w-full h-full items-start justify-start">
+    <!-- START::NAVIGATION BUTTONS -->
+    <ul class="flex flex-col items-start justify-start w-full gap-2">
+      @for (item of navItems; track item.routerLink) {
+        <li class="flex w-full">
+          <a
+            [routerLink]="item.routerLink"
+            routerLinkActive="bg-bg-accent !text-white font-semibold"
+            [routerLinkActiveOptions]="{ exact: false }"
+            class="flex items-center gap-3 w-full py-3 px-4 rounded-xl text-dark-text hover:bg-bg-accent transition-all cursor-pointer"
+          >
+            @if (item.icon) {
+              <i [class]="item.icon"></i>
+            }
+            <span class="text-sm font-semibold">{{ item.title | translate }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+    <!-- END::NAVIGATION BUTTONS -->
+  </div>
+  <!-- END::NAVIGATION -->
+
+  <!-- START::FOOTER -->
+  <div
+    class="flex flex-col items-start p-4 rounded-xl gap-1 bg-white/5 border border-white/5 w-full"
+  >
+    <span class="text-text-on-dark font-semibold text-sm">Need Help?</span>
+    <a href="#" class="text-dark-text text-xs">Review API documentation</a>
+  </div>
+  <!-- END::FOOTER -->
+</aside>
+<!-- END::SIDEBAR -->
