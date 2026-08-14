@@ -13,7 +13,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { DatePipe } from '@angular/common';
 import { DialogService } from 'primeng/dynamicdialog';
 import { HttpBackend, provideHttpClient, withInterceptors } from '@angular/common/http';
-import { httpErrorInterceptor } from '@core/interceptors';
+import { authTokenInterceptor, httpErrorInterceptor } from '@core/interceptors';
 import { DEFAULT_LANGUAGE } from '@utilities/constants';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
@@ -37,7 +37,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([httpErrorInterceptor])),
+    provideHttpClient(withInterceptors([authTokenInterceptor, httpErrorInterceptor])),
     providePrimeNG({
       theme: {
         preset: Aura,

@@ -4,6 +4,6 @@ import { MODULES_ROUTES } from '@utilities/routers';
 export const routes: Routes = [
   {
     path: MODULES_ROUTES.modules.name,
-    loadChildren: () => import('./modules/modules.module').then((m) => m.ModulesModule),
+    loadChildren: () => import('./modules/modules.routes').then((m) => m.modulesRoutes),
   },
 ];

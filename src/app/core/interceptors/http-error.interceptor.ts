@@ -2,7 +2,7 @@ import { type HttpErrorResponse, type HttpInterceptorFn } from '@angular/common/
 import { inject } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { LanguageService } from '../services/language.service';
-
+import { AuthFacade } from '@modules/auth/facade/auth.facade';
 import { catchError, throwError } from 'rxjs';
 
 export const httpErrorInterceptor: HttpInterceptorFn = (request, next) => {
@@ -10,7 +10,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (request, next) => {
    * INJECTIONS
    */
   const messageService = inject(MessageService);
-  // const authService = inject(AuthService);
+  const authFacade = inject(AuthFacade);
   const languageService = inject(LanguageService);
 
   /**
@@ -18,8 +18,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (request, next) => {
    */
   return next(request).pipe(
     catchError((error: HttpErrorResponse) => {
-      // handleError(error, messageService, authService, languageService);
-      handleError(error, messageService, languageService);
+      handleError(error, messageService, authFacade, languageService);
       return throwError(() => error);
     }),
   );
@@ -28,15 +27,15 @@ export const httpErrorInterceptor: HttpInterceptorFn = (request, next) => {
 function handleError(
   error: any,
   messageService: MessageService,
-  // authService: AuthService,
+  authFacade: AuthFacade,
   languageService: LanguageService,
 ) {
   /**
    * HANDEL UNAUTHENTICATED/FORBIDDEN USERS
    */
-  // if (error.status === 401 || error.status === 403) {
-  //   authService.logout();
-  // }
+  if (error.status === 401 || error.status === 403) {
+    authFacade.logout();
+  }
 
   /**
    * HaNDLE LIST OF ERRORS

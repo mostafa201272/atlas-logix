@@ -1,5 +1,5 @@
-const BASE_URL = '/api';
+const BASE_URL = 'https://assessment.nexus-grid.ai/api/v1';
 export const environment = {
-  isProduction: false,
-  common: BASE_URL,
+  isProduction: true,
+  auth: `${BASE_URL}/auth`,
 };

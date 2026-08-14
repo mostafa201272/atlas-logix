@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Route } from '@angular/router';
 import { BaseLayout } from '@layouts/base-layout/base-layout.component';
 import { AuthLayout } from '@layouts/auth-layout/auth-layout.component';
 import { MODULES_ROUTES } from '@utilities/routers';
 
-const routes: Routes = [
+export const modulesRoutes: Route[] = [
   {
     path: '',
     pathMatch: 'full',
@@ -13,7 +12,7 @@ const routes: Routes = [
   {
     path: MODULES_ROUTES.modules.auth.name,
     component: AuthLayout,
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () => import('./auth/auth.routes').then((m) => m.authRoutes),
   },
   {
     path: MODULES_ROUTES.modules.home.name,
@@ -21,9 +20,3 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class ModulesRoutingModule {}

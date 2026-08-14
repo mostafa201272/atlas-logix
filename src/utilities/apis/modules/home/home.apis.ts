@@ -3,7 +3,7 @@ import { environment } from '@environments/environment';
 /**
  * HOME BASE URL
  */
-const home = environment.common;
+const home = environment.auth;
 
 /**
  * HOME APIs
