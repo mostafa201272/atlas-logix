@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { AtlasDashboardHeaderComponent } from '@shared/ui/atoms/atlas-dashboard-header/atlas-dashboard-header.component';
 import { AtlasButtonComponent } from '@shared/ui/atoms/atlas-button/atlas-button.component';
 
 @Component({
-  selector: 'atlas-overview',
+  selector: 'atlas-live-sensors',
   imports: [AtlasDashboardHeaderComponent, AtlasButtonComponent],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss',
+  templateUrl: './live-sensors.component.html',
+  styleUrl: './live-sensors.component.scss',
 })
-export class OverviewComponent {}
+export class LiveSensorsComponent {}
