@@ -10,7 +10,9 @@ export const authRoutes: Route[] = [
   },
   {
     path: MODULES_ROUTES.modules.auth.login.name,
+    title: MODULES_ROUTES.modules.auth.login.label,
     canActivate: [nonAuthGuard],
     loadChildren: () => import('./login/login.routes').then((m) => m.loginRoutes),
   },
+
 ];

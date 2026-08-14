@@ -21,6 +21,10 @@
     "pageReportTemplate": "Showing {{first}} to {{last}} of {{totalRecords}} | Records/Page"
   },
   "status": {
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info",
     "pending": "Pending",
     "available": "Available",
     "active": "Active",

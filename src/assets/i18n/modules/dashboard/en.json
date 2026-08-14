@@ -1,0 +1,19 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "menu": {
+      "overview": {
+        "title": "Overview"
+      },
+      "shipments": {
+        "title": "Shipments"
+      },
+      "liveSensors": {
+        "title": "Live Sensors"
+      },
+      "administration": {
+        "title": "Administration"
+      }
+    }
+  }
+}

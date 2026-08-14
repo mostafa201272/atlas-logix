@@ -67,7 +67,7 @@ export const AuthStore = signalStore(
                   storageService.setStorage(AUTH_KEYS.TOKEN, response.token);
                 }
                 patchState(store, { data: response, isLoading: false, error: null });
-                router.navigate([MODULES_ROUTES.modules.home.route]);
+                router.navigate([MODULES_ROUTES.modules.dashboard.route]);
               }),
               catchError((error: any) => {
                 const errorMessage = error?.error?.message || error?.message || 'Login failed';
@@ -128,4 +128,3 @@ export const AuthStore = signalStore(
     }),
   ),
 );
-

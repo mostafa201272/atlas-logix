@@ -1,5 +1,11 @@
 {
   "auth": {
+    "title": "المصادقة",
+    "menu": {
+      "login": {
+        "title": "تسجيل الدخول"
+      }
+    },
     "promo": {
       "complianceOperations": {
         "title": "عمليات الامتثال",

@@ -1,6 +1,7 @@
 {
   "errors": {
     "general": {
+      "error": "An Error Occurred",
       "unauthorized": "Unauthorized",
       "forbidden": "Forbidden",
       "notFound": "Not Found",
@@ -13,6 +14,9 @@
     },
     "formatError": {
       "invalidMailFormat": "Invalid email format (eg. example@elsherbini.com)"
+    },
+    "apis": {
+      "INVALID_CREDENTIALS": "Invalid Credentials, Please contact the administrator"
     }
   }
 }

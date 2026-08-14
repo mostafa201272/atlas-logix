@@ -1,5 +1,11 @@
 {
   "auth": {
+    "title": "Authentication",
+    "menu": {
+      "login": {
+        "title": "Login"
+      }
+    },
     "promo": {
       "complianceOperations": {
         "title": "Compliance operations",

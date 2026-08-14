@@ -1,0 +1,19 @@
+{
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "menu": {
+      "overview": {
+        "title": "نظرة عامة"
+      },
+      "shipments": {
+        "title": "الشحنات"
+      },
+      "liveSensors": {
+        "title": "المستشعرات المباشرة"
+      },
+      "administration": {
+        "title": "الإدارة"
+      }
+    }
+  }
+}

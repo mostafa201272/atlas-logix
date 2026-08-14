@@ -56,8 +56,10 @@ function handleError(
      */
     messageService.add({
       severity: 'error',
-      summary: languageService.getTransValue('error'),
-      detail: languageService.getTransValue(error?.error?.message ?? 'error'),
+      summary: languageService.getTransValue('status.error'),
+      detail: languageService.getTransValue(
+        error?.error?.error ? `errors.apis.${error?.error?.error}` : `errors.general.error`,
+      ),
     });
   }
 }

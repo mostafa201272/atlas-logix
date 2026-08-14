@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http.service';
-import { HOME_APIS } from '@utilities/apis/modules/home/home.apis';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +14,7 @@ export class HomeApisService {
    * GET - Load data
    */
   getData(searchParams: any) {
-    return this.httpService.getData(HOME_APIS.DATA, searchParams);
+    return this.httpService.getData('HOME_APIS', searchParams);
   }
 
   /**
@@ -24,34 +23,34 @@ export class HomeApisService {
    * @returns
    */
   searchData(searchKey: string) {
-    return this.httpService.getData(HOME_APIS.DATA, { searchKey: searchKey });
+    return this.httpService.getData('HOME_APIS', { searchKey: searchKey });
   }
 
   /**
    * POST - Post data
    */
   postData(body: any) {
-    return this.httpService.postData(HOME_APIS.DATA, body);
+    return this.httpService.postData('HOME_APIS', body);
   }
 
   /**
    * PATCH - Patch data
    */
   patchData(id: string, body: any) {
-    return this.httpService.patchData(`${HOME_APIS.DATA}/${id}`, body);
+    return this.httpService.patchData('HOME_APIS', body);
   }
 
   /**
    * PUT - Put data
    */
   putData(id: string, body: any) {
-    return this.httpService.putData(`${HOME_APIS.DATA}/${id}`, body);
+    return this.httpService.putData('HOME_APIS', body);
   }
 
   /**
    * DELETE - Delete data
    */
   deleteData(id: string) {
-    return this.httpService.deleteData(`${HOME_APIS.DATA}/${id}`);
+    return this.httpService.deleteData('HOME_APIS');
   }
 }
