@@ -15,5 +15,5 @@ export class OverviewOperationalRecordComponent {
   shipmentRoute = input.required<string>();
 
   /** Required - Status */
-  status = input.required<'approved' | 'pending' | 'rejected' | 'neutral'>();
+  status = input.required<'success' | 'pending' | 'fail' | 'neutral'>();
 }

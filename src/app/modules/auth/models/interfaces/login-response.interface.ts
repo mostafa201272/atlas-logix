@@ -24,6 +24,9 @@ export interface ITenant {
   tenantId: string;
   name: string;
   region: string;
-  role: string;
-  permissions: string[];
+  role?: string;
+  permissions?: string[];
+  isActive?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }

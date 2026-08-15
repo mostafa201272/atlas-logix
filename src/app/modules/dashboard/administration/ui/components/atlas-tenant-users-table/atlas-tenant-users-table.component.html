@@ -1,0 +1,69 @@
+<!-- START::USERS TABLE -->
+<p-table [columns]="cols" [value]="tableUsers()">
+  <ng-template #header let-columns>
+    <tr>
+      @for (col of columns; track col) {
+        <th class="uppercase">
+          {{ col.header }}
+        </th>
+      }
+    </tr>
+  </ng-template>
+  <ng-template #body let-rowData let-columns="columns">
+    <tr>
+      @for (col of columns; track col) {
+        <td>
+          @switch (col.field) {
+            @case ('user') {
+              <div class="flex flex-row items-center gap-4">
+                <!-- START::NAME CHARACTERS -->
+                <div
+                  class="w-10 h-10 rounded-xl bg-bg-accent flex items-center justify-center shrink-0"
+                >
+                  <span class="text-white font-semibold">
+                    {{ rowData.characters }}
+                  </span>
+                </div>
+                <!-- END::NAME CHARACTERS` -->
+
+                <!-- START::PROFILE INFO -->
+                <div class="flex flex-col items-start gap-2">
+                  <!-- START::NAME -->
+                  <span class="font-semibold text-sm text-primary capitalize">{{
+                    rowData.name
+                  }}</span>
+                  <!-- END::NAME -->
+
+                  <!-- START::EMAIL -->
+                  <span class="font-light text-secondary text-xs">{{ rowData.email }}</span>
+                  <!-- END::EMAIL -->
+                </div>
+                <!-- END::PROFILE INFO -->
+              </div>
+            }
+            @case ('status') {
+              <atlas-status-badge
+                [status]="rowData.status"
+                [statusLabel]="rowData.statusLabel | translate"
+              ></atlas-status-badge>
+            }
+            @case ('role') {
+              <span>{{ rowData.role }}</span>
+            }
+            @case ('actions') {
+              <div class="flex flex-row items-center gap-2">
+                <!-- START::EDIT -->
+                <atlas-button [variant]="'text'" [icon]="'pi pi-ellipsis-h'"> </atlas-button>
+                <!-- END::EDIT -->
+              </div>
+            }
+            @default {
+              {{ rowData[col.field] }}
+            }
+          }
+        </td>
+      }
+    </tr>
+  </ng-template>
+</p-table>
+<!-- END::USERS TABLE -->

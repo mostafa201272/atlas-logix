@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { TBadgeStatus } from './models/types/badge-status.type';
 
 @Component({
   selector: 'atlas-status-badge',
@@ -10,5 +11,10 @@ export class AtlasStatusBadgeComponent {
   /**
    * Required - Status
    */
-  status = input.required<'approved' | 'pending' | 'rejected' | 'neutral'>();
+  status = input.required<TBadgeStatus>();
+
+  /**
+   * Required - Status Label
+   */
+  statusLabel = input.required<string>();
 }

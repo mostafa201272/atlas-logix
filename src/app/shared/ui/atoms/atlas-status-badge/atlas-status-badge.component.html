@@ -1,14 +1,14 @@
 <span
   class="px-4 py-2 rounded-full text-xs font-semibold capitalize"
   [class]="
-    status() === 'approved'
+    status() === 'success'
       ? 'bg-status-success-bg text-status-success-text'
-      : status() === 'rejected'
+      : status() === 'fail'
         ? 'bg-status-negative-bg text-status-negative-text'
         : status() === 'pending'
           ? 'bg-status-warning-bg text-status-warning-text'
           : 'bg-status-neutral-bg text-status-neutral-text'
   "
 >
-  {{ status() }}
+  {{ statusLabel() }}
 </span>

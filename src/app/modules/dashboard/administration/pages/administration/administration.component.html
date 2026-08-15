@@ -19,4 +19,49 @@
     <!-- END::CONTROLS -->
   </atlas-dashboard-header>
   <!-- END::HEADER -->
+
+  <!-- START::GRID -->
+  <div class="grid grid-cols-12 w-full gap-8">
+    <!-- START::TENANTS LIST -->
+    <atlas-card
+      class="col-span-4 w-full"
+      [title]="'Tenants'"
+      [description]="
+        (tenants().length || 0) + ' accessible organization' + (tenants().length === 1 ? '' : 's')
+      "
+    >
+      <!-- START::CARD BODY -->
+      <ng-container class="card-body">
+        <!-- START::TENANTS LIST -->
+        <div class="flex flex-col items-start gap-4 w-full">
+          @for (tenant of tenants(); track $index) {
+            <atlas-tenant-list-item
+              class="w-full"
+              (onSelect)="handleSelectTenant(tenant)"
+              [tenant]="tenant"
+              [selected]="tenant?.tenantId === selectedTenant()?.tenantId"
+            ></atlas-tenant-list-item>
+          }
+        </div>
+        <!-- END::TENANTS LIST -->
+      </ng-container>
+      <!-- END::CARD BODY -->
+    </atlas-card>
+    <!-- END::TENANTS LIST -->
+
+    <!-- START::TENANTS USER LIST -->
+    <atlas-card
+      class="col-span-8 w-full"
+      [title]="(selectedTenant()?.name || 'Tenant') + ' users'"
+      [description]="'Roles control approval, audit, and operational access.'"
+    >
+      <!-- START::CARD BODY -->
+      <ng-container class="card-body">
+        <atlas-tenant-users-table></atlas-tenant-users-table>
+      </ng-container>
+      <!-- END::CARD BODY -->
+    </atlas-card>
+    <!-- END::TENANTS USER LIST -->
+  </div>
+  <!-- END::GRID -->
 </div>

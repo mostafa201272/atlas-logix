@@ -1,0 +1,29 @@
+<!-- START::TENANT LIST ITEM -->
+<div
+  class="w-full flex flex-col items-start gap-3 p-4 border border-border-default rounded-xl relative cursor-pointer"
+  [class.border-blue!]="selected()"
+  [class.bg-bg-accent/5]="selected()"
+  (click)="onSelect.emit()"
+>
+  <!-- START::TEAL LINE INDICATOR -->
+  @if (selected()) {
+    <div class="absolute top-1/2 -translate-y-1/2 left-0 w-1 h-[80%] bg-blue rounded-full"></div>
+  }
+  <!-- END::TEAL LINE INDICATOR -->
+
+  <!-- START::TENANT -->
+  <span class="font-semibold text-primary">{{ computedTenant().name }}</span>
+  <!-- END::TENANT -->
+
+  <!-- START::TENANT CODE -->
+  <span class="text-secondary text-xs">{{ computedTenant().code }}</span>
+  <!-- END::TENANT CODE -->
+
+  <!-- START::STATUS -->
+  <atlas-status-badge
+    [status]="computedTenant().status"
+    [statusLabel]="computedTenant().statusLabel | translate"
+  ></atlas-status-badge>
+  <!-- END::STATUS -->
+</div>
+<!-- END::TENANT LIST ITEM -->
