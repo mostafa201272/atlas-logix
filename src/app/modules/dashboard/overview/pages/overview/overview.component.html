@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col items-start gap-10">
+<div class="w-full flex flex-col items-start gap-8">
   <!-- START::HEADER -->
   <atlas-dashboard-header
     class="w-full"
@@ -19,4 +19,63 @@
     <!-- END::CONTROLS -->
   </atlas-dashboard-header>
   <!-- END::HEADER -->
+
+  <!-- START::METRICS -->
+  <div class="grid grid-cols-4 w-full gap-8">
+    @for (metric of metrics; track $index) {
+      <atlas-overview-metric
+        class="col-span-1"
+        [title]="metric.title"
+        [value]="metric.value"
+        [details]="metric.details"
+        [symbol]="metric.symbol"
+      ></atlas-overview-metric>
+    }
+  </div>
+  <!-- END::METRICS -->
+
+  <!-- START::GRID -->
+  <div class="grid grid-cols-12 w-full gap-8">
+    <!-- START::RECENTLY UPDATED CARD -->
+    <atlas-card
+      class="col-span-7 w-full"
+      [title]="'Recently updated'"
+      [description]="'Latest operational records'"
+    >
+      <!-- START::CARD HEADER CONTROLS -->
+      <ng-container class="card-header-controls">
+        <div class="flex flex-row items-center gap-3">
+          <atlas-button variant="text" label="View all"></atlas-button>
+        </div>
+      </ng-container>
+      <!-- END::CARD HEADER CONTROLS -->
+
+      <!-- START::CARD BODY -->
+      <ng-container class="card-body">
+        <!-- START::RECORDS LIST -->
+        <atlas-overview-operational-record
+          [shipmentID]="'50023478'"
+          [shipmentRoute]="'LHR → DOH'"
+          [status]="'pending'"
+        >
+        </atlas-overview-operational-record>
+        <!-- END::RECORDS LIST -->
+      </ng-container>
+      <!-- END::CARD BODY -->
+    </atlas-card>
+    <!-- END::RECENTLY UPDATED CARD -->
+
+    <!-- START::Compliance distribution CARD -->
+    <atlas-card
+      class="col-span-5 w-full"
+      [title]="'Compliance distribution'"
+      [description]="'Current status mix'"
+    >
+      <!-- START::CARD BODY -->
+      <ng-container class="card-body"> </ng-container>
+      <!-- END::CARD BODY -->
+    </atlas-card>
+    <!-- END::Compliance distribution CARD -->
+  </div>
+  <!-- END::GRID -->
 </div>

@@ -1,0 +1,39 @@
+<!-- START::OPERATIONAL RECORD -->
+<div class="w-full flex flex-row items-center gap-4">
+  <!-- START::SHIPMENT DETAILS -->
+  <div class="flex flex-row items-start gap-4 w-full">
+    <!-- START::SHIPMENT ICON -->
+    <div class="w-10 h-10 rounded-xl bg-bg-accent/10 flex items-center justify-center shrink-0">
+      <span class="flex">
+        <i class="flex pi pi-box text-text-accent"></i>
+      </span>
+    </div>
+    <!-- END::SHIPMENT ICON -->
+
+    <!-- START::SHIPMENT INFO -->
+    <div class="flex flex-col items-start gap-1">
+      <!-- START::SHIPMENT ID -->
+      <span class="text-sm font-semibold text-primary">{{ shipmentID() }}</span>
+      <!-- END::SHIPMENT ID -->
+
+      <!-- START::SHIPMENT ROUTE -->
+      <span class="text-xs text-secondary">{{ shipmentRoute() }}</span>
+      <!-- END::SHIPMENT ROUTE -->
+    </div>
+    <!-- END::SHIPMENT INFO -->
+  </div>
+  <!-- END::SHIPMENT DETAILS -->
+
+  <!-- START::STATUS -->
+  <div class="">
+    <atlas-status-badge [status]="status()"></atlas-status-badge>
+  </div>
+  <!-- END::STATUS -->
+
+  <!-- START::DATE & TIME -->
+  <div class="flex w-fit">
+    <span class="w-fit text-secondary text-sm whitespace-nowrap">12 Jul, 16:35</span>
+  </div>
+  <!-- END::DATE & TIME -->
+</div>
+<!-- END::OPERATIONAL RECORD -->

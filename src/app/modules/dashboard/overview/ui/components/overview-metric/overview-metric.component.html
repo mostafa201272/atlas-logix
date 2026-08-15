@@ -1,0 +1,29 @@
+<!-- START::OVERVIEW METRIC CARD -->
+<div
+  class="flex flex-row w-full bg-bg-surface border border-border-default shadow-lg rounded-xl overflow-hidden p-5 gap-4"
+>
+  <!-- START::SYMBOL -->
+  <div
+    class="bg-bg-accent/10 w-12 h-12 rounded-xl flex flex-col shrink-0 items-center justify-center"
+  >
+    <span class="text-text-accent font-bold text-lg">{{ symbol() }}</span>
+  </div>
+  <!-- END::SYMBOL -->
+
+  <!-- START::CONTENT -->
+  <div class="flex flex-col items-start justify-start w-full gap-2">
+    <!-- START::TITLE -->
+    <span class="text-secondary font-medium text-xs">{{ title() }}</span>
+    <!-- END::TITLE -->
+
+    <!-- START::VALUE -->
+    <span class="text-primary font-semibold text-3xl">{{ value() }}</span>
+    <!-- END::VALUE -->
+
+    <!-- START::DETAILS -->
+    <span class="text-secondary font-normal text-xs">{{ details() }}</span>
+    <!-- END::DETAILS -->
+  </div>
+  <!-- END::CONTENT -->
+</div>
+<!-- END::OVERVIEW METRIC CARD -->
