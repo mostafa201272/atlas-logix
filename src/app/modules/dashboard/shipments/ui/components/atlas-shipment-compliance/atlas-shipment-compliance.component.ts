@@ -1,11 +1,12 @@
 import { Component, inject, input, OnInit } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { AppBase } from '@core/bases/app-base.base';
 import { ShipmentsFacade } from '../../../facade/shipments.facade';
 import { AtlasButtonComponent } from '@shared/ui/atoms/atlas-button/atlas-button.component';
 
 @Component({
   selector: 'atlas-shipment-compliance',
-  imports: [AtlasButtonComponent],
+  imports: [TranslatePipe, AtlasButtonComponent],
   templateUrl: './atlas-shipment-compliance.component.html',
   styleUrl: './atlas-shipment-compliance.component.scss',
 })
@@ -16,6 +17,13 @@ export class AtlasShipmentComplianceComponent extends AppBase implements OnInit 
    * Required - Shipment ID
    */
   shipmentId = input.required<string>();
+
+  /**
+   * Base translation point for compliance tab
+   */
+  readonly baseTranslationPoint =
+    this.MODULES_ROUTES.modules.dashboard.shipments.itemsBaseTranslationKey +
+    'details.compliance.';
 
   /**
    * Signal - Compliance Report from store

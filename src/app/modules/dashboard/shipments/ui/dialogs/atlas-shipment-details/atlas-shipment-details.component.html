@@ -33,9 +33,12 @@
     <!-- START::CONTROLS -->
     <div class="flex flex-row items-center gap-3">
       <!-- START::TIME-STAMP -->
-      <span class="text-sm text-secondary"
-        >Updated {{ shipment().last_updated | date: 'dd MMM, h:mm a' }}</span
-      >
+      <span class="text-sm text-secondary">
+        {{
+          baseTranslationPoint + 'details.updated'
+            | translate: { date: (shipment().last_updated | date: 'dd MMM, h:mm a') }
+        }}
+      </span>
       <!-- END::TIME-STAMP -->
     </div>
     <!-- END::CONTROLS -->
@@ -46,10 +49,18 @@
   <div class="w-full">
     <p-tabs value="overview">
       <p-tablist>
-        <p-tab value="overview">Overview</p-tab>
-        <p-tab value="sensor-history">Sensor history</p-tab>
-        <p-tab value="compliance">Compliance</p-tab>
-        <p-tab value="audit-log">Audit log</p-tab>
+        <p-tab value="overview">
+          {{ baseTranslationPoint + 'details.tabs.overview' | translate }}
+        </p-tab>
+        <p-tab value="sensor-history">
+          {{ baseTranslationPoint + 'details.tabs.sensorHistory' | translate }}
+        </p-tab>
+        <p-tab value="compliance">
+          {{ baseTranslationPoint + 'details.tabs.compliance' | translate }}
+        </p-tab>
+        <p-tab value="audit-log">
+          {{ baseTranslationPoint + 'details.tabs.auditLog' | translate }}
+        </p-tab>
       </p-tablist>
       <p-tabpanels>
         <p-tabpanel value="overview">

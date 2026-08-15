@@ -1,0 +1,118 @@
+<div class="grid grid-cols-4 w-full gap-6">
+  <!-- START::TEMPERATURE CARD -->
+  <div
+    class="col-span-1 flex flex-row items-start gap-4 bg-bg-surface border border-border-default rounded-2xl p-4"
+  >
+    <!-- START::ICON -->
+    <div class="w-12 h-12 rounded-xl bg-orange/10 flex items-center justify-center shrink-0">
+      <i class="pi pi-sun text-orange text-xl"></i>
+    </div>
+    <!-- END::ICON -->
+
+    <!-- START::INFO -->
+    <div class="flex flex-col gap-1">
+      <span class="text-sm text-secondary">{{
+        baseTranslationPoint + 'temperature' | translate
+      }}</span>
+      <span dir="ltr" class="text-3xl font-bold text-primary">
+        {{ telemetry() ? (telemetry()?.temperature | number: '1.1-2') + ' °C' : '—' }}
+      </span>
+      <span class="text-xs text-secondary">{{
+        baseTranslationPoint + 'targetRange' | translate
+      }}</span>
+    </div>
+    <!-- END::INFO -->
+  </div>
+  <!-- END::TEMPERATURE CARD -->
+
+  <!-- START::HUMIDITY CARD -->
+  <div
+    class="col-span-1 flex flex-row items-start gap-4 bg-bg-surface border border-border-default rounded-2xl p-4"
+  >
+    <!-- START::ICON -->
+    <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center shrink-0">
+      <i class="pi pi-cloud text-cyan text-xl"></i>
+    </div>
+    <!-- END::ICON -->
+
+    <!-- START::INFO -->
+    <div class="flex flex-col gap-1">
+      <span class="text-sm text-secondary">{{
+        baseTranslationPoint + 'humidity' | translate
+      }}</span>
+      <span dir="ltr" class="text-3xl font-bold text-primary">
+        {{ telemetry() ? (telemetry()?.humidity | number: '1.0-1') + ' %' : '—' }}
+      </span>
+      <span class="text-xs text-secondary">{{
+        baseTranslationPoint + 'relativeHumidity' | translate
+      }}</span>
+    </div>
+    <!-- END::INFO -->
+  </div>
+  <!-- END::HUMIDITY CARD -->
+
+  <!-- START::VIBRATION CARD -->
+  <div
+    class="col-span-1 flex flex-row items-start gap-4 bg-bg-surface border border-border-default rounded-2xl p-4"
+  >
+    <!-- START::ICON -->
+    <div class="w-12 h-12 rounded-xl bg-blue/10 flex items-center justify-center shrink-0">
+      <i class="pi pi-bolt text-blue text-xl"></i>
+    </div>
+    <!-- END::ICON -->
+
+    <!-- START::INFO -->
+    <div class="flex flex-col gap-1">
+      <span class="text-sm text-secondary">{{
+        baseTranslationPoint + 'vibration' | translate
+      }}</span>
+      <span dir="ltr" class="text-3xl font-bold text-primary">
+        {{ telemetry() ? (telemetry()?.vibration | number: '1.1-2') + ' g' : '—' }}
+      </span>
+      <span class="text-xs text-secondary">{{
+        baseTranslationPoint + 'vibrationIndex' | translate
+      }}</span>
+    </div>
+    <!-- END::INFO -->
+  </div>
+  <!-- END::VIBRATION CARD -->
+
+  <!-- START::BATTERY & CONFIDENCE CARD -->
+  <div
+    class="col-span-1 flex flex-row items-start gap-4 bg-bg-surface border border-border-default rounded-2xl p-4"
+  >
+    <!-- START::ICON -->
+    <div class="w-12 h-12 rounded-xl bg-teal-light/10 flex items-center justify-center shrink-0">
+      <i class="pi pi-bolt text-teal-light text-xl"></i>
+    </div>
+    <!-- END::ICON -->
+
+    <!-- START::INFO -->
+    <div class="flex flex-col gap-1">
+      <span class="text-sm text-secondary">{{
+        baseTranslationPoint + 'sensorBattery' | translate
+      }}</span>
+      <span dir="ltr" class="text-3xl font-bold text-primary">
+        {{ telemetry() ? (telemetry()?.battery_level | number: '1.0-0') + ' %' : '—' }}
+      </span>
+
+      <!-- START::CONFIDENCE BADGE -->
+      <div class="flex flex-row items-center gap-2">
+        @if (telemetry()?.confidence) {
+          <div class="flex items-center gap-2 mt-1">
+            <span class="text-xs text-secondary">{{
+              baseTranslationPoint + 'confidence' | translate
+            }}</span>
+            <atlas-status-badge
+              [status]="getConfidenceBadge(telemetry()?.confidence)"
+              [statusLabel]="telemetry()?.confidence || ''"
+            ></atlas-status-badge>
+          </div>
+        }
+      </div>
+      <!-- END::CONFIDENCE BADGE -->
+    </div>
+    <!-- END::INFO -->
+  </div>
+  <!-- END::BATTERY & CONFIDENCE CARD -->
+</div>

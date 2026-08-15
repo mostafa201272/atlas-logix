@@ -1,6 +1,7 @@
 import { Component, computed, inject, input, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { TableModule } from 'primeng/table';
+import { TranslatePipe } from '@ngx-translate/core';
 import { AppBase } from '@core/bases/app-base.base';
 import { AtlasStatusBadgeComponent } from '@shared/ui/atoms/atlas-status-badge/atlas-status-badge.component';
 import { TBadgeStatus } from '@shared/ui/atoms/atlas-status-badge/models/types/badge-status.type';
@@ -9,7 +10,7 @@ import { ISensorHistoryItem } from '../../../models/interfaces';
 
 @Component({
   selector: 'atlas-shipment-sensor-history',
-  imports: [DatePipe, TableModule, AtlasStatusBadgeComponent],
+  imports: [DatePipe, TableModule, TranslatePipe, AtlasStatusBadgeComponent],
   templateUrl: './atlas-shipment-sensor-history.component.html',
   styleUrl: './atlas-shipment-sensor-history.component.scss',
 })
@@ -21,13 +22,20 @@ export class AtlasShipmentSensorHistoryComponent extends AppBase implements OnIn
    */
   shipmentId = input.required<string>();
 
+  /**
+   * Base translation point for sensor history tab
+   */
+  readonly baseTranslationPoint =
+    this.MODULES_ROUTES.modules.dashboard.shipments.itemsBaseTranslationKey +
+    'details.sensorHistory.';
+
   cols = [
-    { field: 'timestamp', header: 'Timestamp' },
-    { field: 'temperature', header: 'Temperature' },
-    { field: 'humidity', header: 'Humidity' },
-    { field: 'vibration', header: 'Vibration' },
-    { field: 'batteryLevel', header: 'Battery' },
-    { field: 'confidence', header: 'Confidence' },
+    { field: 'timestamp', header: 'timestamp' },
+    { field: 'temperature', header: 'temperature' },
+    { field: 'humidity', header: 'humidity' },
+    { field: 'vibration', header: 'vibration' },
+    { field: 'batteryLevel', header: 'battery' },
+    { field: 'confidence', header: 'confidence' },
   ];
 
   /**

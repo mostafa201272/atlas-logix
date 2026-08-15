@@ -1,13 +1,14 @@
 import { Component, computed, inject, input, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { TableModule } from 'primeng/table';
+import { TranslatePipe } from '@ngx-translate/core';
 import { AppBase } from '@core/bases/app-base.base';
 import { ShipmentsFacade } from '../../../facade/shipments.facade';
 import { IAuditLogItem } from '../../../models/interfaces';
 
 @Component({
   selector: 'atlas-shipment-audit-log',
-  imports: [DatePipe, TableModule],
+  imports: [DatePipe, TableModule, TranslatePipe],
   templateUrl: './atlas-shipment-audit-log.component.html',
   styleUrl: './atlas-shipment-audit-log.component.scss',
 })
@@ -19,12 +20,19 @@ export class AtlasShipmentAuditLogComponent extends AppBase implements OnInit {
    */
   shipmentId = input.required<string>();
 
+  /**
+   * Base translation point for audit log tab
+   */
+  readonly baseTranslationPoint =
+    this.MODULES_ROUTES.modules.dashboard.shipments.itemsBaseTranslationKey +
+    'details.auditLog.';
+
   cols = [
-    { field: 'field', header: 'Field' },
-    { field: 'before', header: 'Before' },
-    { field: 'after', header: 'After' },
-    { field: 'changed_by', header: 'Changed By' },
-    { field: 'timestamp', header: 'Timestamp' },
+    { field: 'field', header: 'field' },
+    { field: 'before', header: 'before' },
+    { field: 'after', header: 'after' },
+    { field: 'changed_by', header: 'changedBy' },
+    { field: 'timestamp', header: 'timestamp' },
   ];
 
   /**

@@ -4,7 +4,7 @@
     "trackingCompliancePlatform": "منصة التتبع والامتثال"
   },
   "footer": {
-    "copyRight": "All rights reserved to AtlasLogix {{year}}"
+    "copyRight": "جميع الحقوق محفوظة لـ AtlasLogix {{year}}"
   },
   "language": "English",
   "status": {
@@ -24,5 +24,12 @@
   },
   "tenant": {
     "selectTenant": "مؤسسة"
+  },
+  "roles": {
+    "TENANT_ADMIN": "مدير المؤسسة",
+    "COMPLIANCE_AUDITOR": "مدقق الامتثال",
+    "OPERATIONS_MANAGER": "مدير العمليات",
+    "VIEWER": "مشاهد",
+    "WAREHOUSE_SUPERVISOR": "مشرف المستودع"
   }
 }

@@ -10,7 +10,7 @@
       [class.border-status-negative-text]="report()?.complianceStatus === 'REJECTED'"
     >
       <!-- START::TITLE -->
-      <span class="text-xs text-secondary">Compliance status</span>
+      <span class="text-xs text-secondary">{{ baseTranslationPoint + 'complianceStatus' | translate }}</span>
       <!-- END::TITLE -->
 
       <!-- START::VALUE -->
@@ -30,7 +30,7 @@
       class="col-span-1 rounded-xl border border-border-default p-4 flex flex-col items-start gap-2"
     >
       <!-- START::TITLE -->
-      <span class="text-xs text-secondary">Sensor confidence</span>
+      <span class="text-xs text-secondary">{{ baseTranslationPoint + 'sensorConfidence' | translate }}</span>
       <!-- END::TITLE -->
 
       <!-- START::VALUE -->
@@ -44,7 +44,7 @@
       class="col-span-1 rounded-xl border border-border-default p-4 flex flex-col items-start gap-2"
     >
       <!-- START::TITLE -->
-      <span class="text-xs text-secondary">Sensor events</span>
+      <span class="text-xs text-secondary">{{ baseTranslationPoint + 'sensorEvents' | translate }}</span>
       <!-- END::TITLE -->
 
       <!-- START::VALUE -->
@@ -59,12 +59,13 @@
       [class.border-status-warning-text]="report()?.hasExcursion"
     >
       <!-- START::TITLE -->
-      <span class="text-xs text-secondary">Excursion</span>
+      <span class="text-xs text-secondary">{{ baseTranslationPoint + 'excursion' | translate }}</span>
       <!-- END::TITLE -->
 
       <!-- START::VALUE -->
       <span class="text-2xl font-bold" [class.text-status-warning-text]="report()?.hasExcursion">{{
-        report()?.hasExcursion ? 'Detected' : 'None'
+        (report()?.hasExcursion ? baseTranslationPoint + 'detected' : baseTranslationPoint + 'none')
+          | translate
       }}</span>
       <!-- END::VALUE -->
     </div>
@@ -77,14 +78,11 @@
     <!-- START::HEADER -->
     <div class="flex flex-col items-start gap-2">
       <!-- START::TITLE -->
-      <span class="text-lg text-primary font-bold">Temperature excursion summary</span>
+      <span class="text-lg text-primary font-bold">{{ baseTranslationPoint + 'temperatureExcursionSummary' | translate }}</span>
       <!-- END::TITLE -->
 
       <!-- START::SUBTITLE -->
-      <span class="text-sm text-secondary"
-        >Recorded telemetry and threshold report. Review the evidence before making a compliance
-        decision.</span
-      >
+      <span class="text-sm text-secondary">{{ baseTranslationPoint + 'reviewEvidenceSubtitle' | translate }}</span>
       <!-- END::SUBTITLE -->
     </div>
     <!-- END::HEADER -->
@@ -94,7 +92,7 @@
       <!-- START::ITEM [REQUIRED RANGE]-->
       <div class="col-span-1 flex flex-col items-start">
         <!-- START::TITLE -->
-        <span class="text-xs text-secondary uppercase">REQUIRED RANGE</span>
+        <span class="text-xs text-secondary uppercase">{{ baseTranslationPoint + 'requiredRange' | translate }}</span>
         <!-- END::TITLE -->
 
         <!-- START::VALUE -->
@@ -106,7 +104,7 @@
       <!-- START::ITEM [RECORDED RANGE]-->
       <div class="col-span-1 flex flex-col items-start">
         <!-- START::TITLE -->
-        <span class="text-xs text-secondary uppercase">RECORDED RANGE</span>
+        <span class="text-xs text-secondary uppercase">{{ baseTranslationPoint + 'recordedRange' | translate }}</span>
         <!-- END::TITLE -->
 
         <!-- START::VALUE -->
@@ -118,11 +116,14 @@
       <!-- START::ITEM [EXCURSION]-->
       <div class="col-span-1 flex flex-col items-start">
         <!-- START::TITLE -->
-        <span class="text-xs text-secondary uppercase">EXCURSION</span>
+        <span class="text-xs text-secondary uppercase">{{ baseTranslationPoint + 'excursionLabel' | translate }}</span>
         <!-- END::TITLE -->
 
         <!-- START::VALUE -->
-        <span class="text-2xl font-bold">{{ report()?.hasExcursion ? 'Detected' : 'None' }}</span>
+        <span class="text-2xl font-bold">{{
+          (report()?.hasExcursion ? baseTranslationPoint + 'detected' : baseTranslationPoint + 'none')
+            | translate
+        }}</span>
         <!-- END::VALUE -->
       </div>
       <!-- END::ITEM [EXCURSION] -->
@@ -130,7 +131,7 @@
       <!-- START::ITEM [CONFIDENCE]-->
       <div class="col-span-1 flex flex-col items-start">
         <!-- START::TITLE -->
-        <span class="text-xs text-secondary uppercase">CONFIDENCE</span>
+        <span class="text-xs text-secondary uppercase">{{ baseTranslationPoint + 'confidenceLabel' | translate }}</span>
         <!-- END::TITLE -->
 
         <!-- START::VALUE -->
@@ -149,7 +150,7 @@
       <!-- START::REJECT BTN -->
       <atlas-button
         variant="outlined"
-        label="Reject"
+        [label]="baseTranslationPoint + 'rejectBtn' | translate"
         severity="danger"
         (onClick)="changeComplianceStatus('REJECTED')"
       ></atlas-button>
@@ -157,7 +158,7 @@
 
       <!-- START::APPROVE BTN -->
       <atlas-button
-        label="Approve compliance"
+        [label]="baseTranslationPoint + 'approveComplianceBtn' | translate"
         (onClick)="changeComplianceStatus('APPROVED')"
       ></atlas-button>
       <!-- END::APPROVE BTN -->

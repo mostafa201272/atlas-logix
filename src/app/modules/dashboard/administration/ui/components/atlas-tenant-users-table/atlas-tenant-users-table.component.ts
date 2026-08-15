@@ -98,12 +98,17 @@ export class AtlasTenantUsersTableComponent extends AppBase {
         this.messageService.add({
           severity: 'success',
           summary: this.translateService.instant('status.success'),
-          detail: 'User role updated successfully',
+          detail: this.translateService.instant(
+            `${this.baseTranslationPoint}messages.roleUpdatedSuccess`,
+          ),
         });
         this.adminFacade.loadTenantUsers(tenantId);
       },
       error: (err: any) => {
-        const errorDetail = err?.error?.message || err?.message || 'Failed to update user role';
+        const errorDetail =
+          err?.error?.message ||
+          err?.message ||
+          this.translateService.instant(`${this.baseTranslationPoint}messages.roleUpdatedError`);
         this.messageService.add({
           severity: 'error',
           summary: this.translateService.instant('status.error'),

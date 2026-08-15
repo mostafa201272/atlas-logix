@@ -52,6 +52,63 @@
         "title": "الشحنات",
         "subtitle": "مراجعة المسارات والظروف وحالات الامتثال."
       },
+      "details": {
+        "eyebrow": "مراجعة الشحنة",
+        "updated": "تم التحديث {{date}}",
+        "tabs": {
+          "overview": "نظرة عامة",
+          "sensorHistory": "سجل المستشعرات",
+          "compliance": "الامتثال",
+          "auditLog": "سجل المراجعة"
+        },
+        "overview": {
+          "routeAndHandling": "المسار والتعامل",
+          "origin": "المصدر",
+          "destination": "الوجهة",
+          "carrier": "الناقل",
+          "warehouse": "المستودع",
+          "cargo": "نوع الشحنة",
+          "estimatedArrival": "الوصول المتوقع",
+          "environmentalThresholds": "الحدود البيئية",
+          "temperature": "درجة الحرارة",
+          "humidity": "الرطوبة"
+        },
+        "sensorHistory": {
+          "cols": {
+            "timestamp": "الطابع الزمني",
+            "temperature": "درجة الحرارة",
+            "humidity": "الرطوبة",
+            "vibration": "الاهتزاز",
+            "battery": "البطارية",
+            "confidence": "مستوى الثقة"
+          }
+        },
+        "compliance": {
+          "complianceStatus": "حالة الامتثال",
+          "sensorConfidence": "ثقة المستشعر",
+          "sensorEvents": "أحداث المستشعر",
+          "excursion": "التجاوز",
+          "detected": "تم الكشف",
+          "none": "لا يوجد",
+          "temperatureExcursionSummary": "ملخص تجاوز درجة الحرارة",
+          "reviewEvidenceSubtitle": "تقرير القياس المستمر والحدود. راجع الأدلة قبل اتخاذ قرار الامتثال.",
+          "requiredRange": "النطاق المطلوبة",
+          "recordedRange": "النطاق المسجل",
+          "excursionLabel": "التجاوز",
+          "confidenceLabel": "مستوى الثقة",
+          "rejectBtn": "رفض",
+          "approveComplianceBtn": "اعتماد الامتثال"
+        },
+        "auditLog": {
+          "cols": {
+            "field": "الحقل",
+            "before": "قبل",
+            "after": "بعد",
+            "changedBy": "تم التغيير بواسطة",
+            "timestamp": "الطابع الزمني"
+          }
+        }
+      },
       "table": {
         "cols": {
           "shipment": "الشحنة",
@@ -68,7 +125,36 @@
       "header": {
         "eyebrow": "بث المستشعرات",
         "title": "المستشعرات المباشرة",
-        "subtitle": "بث البيانات عن بُعد وحالة المستشعرات في الوقت الفعلي."
+        "subtitle": "بث البيانات عن بُعد وحالة المستشعرات في الوقت الفعلي.",
+        "startStreamBtn": "بدء البث المباشر",
+        "stopStreamBtn": "إيقاف البث",
+        "streamingLive": "بث مباشر"
+      },
+      "metrics": {
+        "temperature": "درجة الحرارة",
+        "targetRange": "النطاق المستهدف: 2°C - 8°C",
+        "humidity": "الرطوبة",
+        "relativeHumidity": "الرطوبة النسبية",
+        "vibration": "الاهتزاز",
+        "vibrationIndex": "مؤشر الاهتزاز",
+        "sensorBattery": "بطارية المستشعر",
+        "confidence": "مستوى الثقة:"
+      },
+      "card": {
+        "title": "موجز أحداث بث المستشعرات",
+        "description": "سجل تاريخ بث البيانات عن بُعد الواردة في الوقت الفعلي."
+      },
+      "table": {
+        "cols": {
+          "timestamp": "الطابع الزمني",
+          "shipmentId": "معرف الشحنة",
+          "temperature": "الحرارة (°م)",
+          "humidity": "الرطوبة (%)",
+          "vibration": "الاهتزاز (g)",
+          "battery": "البطارية",
+          "confidence": "مستوى الثقة"
+        },
+        "emptyMessage": "لم يتم استلام أحداث بث مباشر بعد. انقر على \"بدء البث المباشر\" للاتصال."
       }
     },
     "administration": {
@@ -95,7 +181,12 @@
           "status": "الحالة",
           "actions": ""
         },
+        "selectRole": "اختر الدور",
         "permissionsCount": "{{count}} صلاحية"
+      },
+      "messages": {
+        "roleUpdatedSuccess": "تم تحديث دور المستخدم بنجاح",
+        "roleUpdatedError": "فشل في تحديث دور المستخدم"
       }
     }
   }

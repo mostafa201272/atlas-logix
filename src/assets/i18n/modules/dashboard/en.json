@@ -53,7 +53,61 @@
         "subtitle": "Review routes, conditions, and compliance states."
       },
       "details": {
-        "eyebrow": "SHIPMENT REVIEW "
+        "eyebrow": "SHIPMENT REVIEW",
+        "updated": "Updated {{date}}",
+        "tabs": {
+          "overview": "Overview",
+          "sensorHistory": "Sensor history",
+          "compliance": "Compliance",
+          "auditLog": "Audit log"
+        },
+        "overview": {
+          "routeAndHandling": "Route & handling",
+          "origin": "Origin",
+          "destination": "Destination",
+          "carrier": "Carrier",
+          "warehouse": "Warehouse",
+          "cargo": "Cargo",
+          "estimatedArrival": "Estimated Arrival",
+          "environmentalThresholds": "Environmental Thresholds",
+          "temperature": "Temperature",
+          "humidity": "Humidity"
+        },
+        "sensorHistory": {
+          "cols": {
+            "timestamp": "timestamp",
+            "temperature": "temperature",
+            "humidity": "humidity",
+            "vibration": "vibration",
+            "battery": "battery",
+            "confidence": "confidence"
+          }
+        },
+        "compliance": {
+          "complianceStatus": "Compliance status",
+          "sensorConfidence": "Sensor confidence",
+          "sensorEvents": "Sensor events",
+          "excursion": "Excursion",
+          "detected": "Detected",
+          "none": "None",
+          "temperatureExcursionSummary": "Temperature excursion summary",
+          "reviewEvidenceSubtitle": "Recorded telemetry and threshold report. Review the evidence before making a compliance decision.",
+          "requiredRange": "REQUIRED RANGE",
+          "recordedRange": "RECORDED RANGE",
+          "excursionLabel": "EXCURSION",
+          "confidenceLabel": "CONFIDENCE",
+          "rejectBtn": "Reject",
+          "approveComplianceBtn": "Approve compliance"
+        },
+        "auditLog": {
+          "cols": {
+            "field": "field",
+            "before": "before",
+            "after": "after",
+            "changedBy": "changed by",
+            "timestamp": "timestamp"
+          }
+        }
       },
       "table": {
         "cols": {
@@ -71,7 +125,36 @@
       "header": {
         "eyebrow": "SENSOR STREAM",
         "title": "Live Sensors",
-        "subtitle": "Real-time telemetry and sensor status stream."
+        "subtitle": "Real-time telemetry and sensor status stream.",
+        "startStreamBtn": "Start Live Stream",
+        "stopStreamBtn": "Stop Stream",
+        "streamingLive": "Streaming Live"
+      },
+      "metrics": {
+        "temperature": "Temperature",
+        "targetRange": "Target Range: 2°C - 8°C",
+        "humidity": "Humidity",
+        "relativeHumidity": "Relative Humidity",
+        "vibration": "Vibration",
+        "vibrationIndex": "Vibration Index",
+        "sensorBattery": "Sensor Battery",
+        "confidence": "Confidence:"
+      },
+      "card": {
+        "title": "Sensor Stream Event Feed",
+        "description": "Real-time incoming telemetry stream history log."
+      },
+      "table": {
+        "cols": {
+          "timestamp": "timestamp",
+          "shipmentId": "shipment id",
+          "temperature": "temp (°c)",
+          "humidity": "humidity (%)",
+          "vibration": "vibration (g)",
+          "battery": "battery",
+          "confidence": "confidence"
+        },
+        "emptyMessage": "No live stream events received yet. Click \"Start Live Stream\" to connect."
       }
     },
     "administration": {
@@ -98,7 +181,12 @@
           "status": "status",
           "actions": ""
         },
+        "selectRole": "Select role",
         "permissionsCount": "{{count}} permissions"
+      },
+      "messages": {
+        "roleUpdatedSuccess": "User role updated successfully",
+        "roleUpdatedError": "Failed to update user role"
       }
     }
   }

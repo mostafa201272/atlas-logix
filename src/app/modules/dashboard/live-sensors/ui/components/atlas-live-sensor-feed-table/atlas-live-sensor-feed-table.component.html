@@ -1,0 +1,63 @@
+<p-table [columns]="cols" [value]="history()" [paginator]="true" [rows]="10">
+  <ng-template #header let-columns>
+    <tr>
+      @for (col of columns; track col.field) {
+        <th class="uppercase">
+          {{ baseTranslationPoint + 'cols.' + col.header | translate }}
+        </th>
+      }
+    </tr>
+  </ng-template>
+
+  <ng-template #body let-rowData let-columns="columns">
+    <tr>
+      @for (col of columns; track col.field) {
+        <td>
+          @switch (col.field) {
+            @case ('timestamp') {
+              <span class="text-sm font-medium text-primary">
+                {{ rowData.timestamp | date: 'dd MMM, HH:mm:ss' }}
+              </span>
+            }
+            @case ('shipmentId') {
+              <span class="text-sm font-semibold text-secondary font-mono">
+                {{ rowData.shipmentId }}
+              </span>
+            }
+            @case ('temperature') {
+              <span class="text-sm font-semibold text-primary">
+                {{ rowData.temperature | number: '1.1-2' }} °C
+              </span>
+            }
+            @case ('humidity') {
+              <span>{{ rowData.humidity | number: '1.0-1' }}%</span>
+            }
+            @case ('vibration') {
+              <span>{{ rowData.vibration | number: '1.1-2' }} g</span>
+            }
+            @case ('battery_level') {
+              <span>{{ rowData.battery_level | number: '1.0-0' }}%</span>
+            }
+            @case ('confidence') {
+              <atlas-status-badge
+                [status]="getConfidenceBadge(rowData.confidence)"
+                [statusLabel]="rowData.confidence"
+              ></atlas-status-badge>
+            }
+            @default {
+              {{ rowData[col.field] }}
+            }
+          }
+        </td>
+      }
+    </tr>
+  </ng-template>
+
+  <ng-template #emptymessage>
+    <tr>
+      <td colspan="7" class="text-center py-6 text-secondary text-sm">
+        {{ baseTranslationPoint + 'emptyMessage' | translate }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

@@ -5,7 +5,7 @@
       <tr>
         @for (col of columns; track col) {
           <th class="uppercase text-sm text-secondary font-semibold">
-            {{ col.header }}
+            {{ baseTranslationPoint + 'cols.' + col.header | translate }}
           </th>
         }
       </tr>
