@@ -6,5 +6,23 @@
   "footer": {
     "copyRight": "All rights reserved to AtlasLogix {{year}}"
   },
-  "language": "English"
+  "language": "English",
+  "status": {
+    "error": "خطأ",
+    "success": "ناجح",
+    "warning": "تحذير",
+    "info": "معلومات",
+    "pending": "معلق",
+    "available": "متاح",
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "inTransit": "قيد النقل",
+    "delivered": "تم التسليم",
+    "approved": "معتمد",
+    "rejected": "مرفوض",
+    "cancelled": "ملغى"
+  },
+  "tenant": {
+    "selectTenant": "مؤسسة"
+  }
 }

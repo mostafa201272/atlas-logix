@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { AtlasStatusBadgeComponent } from '@shared/ui/atoms/atlas-status-badge/atlas-status-badge.component';
 
 @Component({
   selector: 'atlas-overview-operational-record',
-  imports: [AtlasStatusBadgeComponent],
+  imports: [TranslatePipe, AtlasStatusBadgeComponent],
   templateUrl: './overview-operational-record.component.html',
   styleUrl: './overview-operational-record.component.scss',
 })

@@ -14,6 +14,84 @@
       "administration": {
         "title": "الإدارة"
       }
+    },
+    "sidebar": {
+      "needHelp": "هل تحتاج مساعدة؟",
+      "reviewApiDocs": "مراجعة وثائق API"
+    },
+    "overview": {
+      "header": {
+        "eyebrow": "نظرة عامة على العمليات",
+        "title": "مركز قيادة الامتثال",
+        "subtitle": "مراقبة الشحنات النشطة وتحديد أولويات السجلات التي تتطلب المراجعة.",
+        "reviewShipmentsBtn": "مراجعة الشحنات"
+      },
+      "metrics": {
+        "onTimeDepartures": "المغادارات في الوقت المحدد",
+        "onTimeArrivals": "الوصول في الوقت المحدد",
+        "target": "الهدف: {{percentage}}% ({{current}}/{{total}})"
+      },
+      "recentlyUpdated": {
+        "title": "المحدثة مؤخراً",
+        "description": "أحدث السجلات التشغيلية",
+        "viewAllBtn": "عرض الكل"
+      },
+      "complianceDistribution": {
+        "title": "توزيع الامتثال",
+        "description": "مزيج الحالة الحالي"
+      }
+    },
+    "shipments": {
+      "header": {
+        "eyebrow": "سجل الشحنات",
+        "title": "الشحنات",
+        "subtitle": "مراجعة المسارات والظروف وحالات الامتثال."
+      },
+      "table": {
+        "cols": {
+          "shipment": "الشحنة",
+          "route": "المسار",
+          "warehouse": "المستودع",
+          "status": "الحالة",
+          "compliance": "الامتثال",
+          "lastUpdated": "آخر تحديث",
+          "actions": ""
+        }
+      }
+    },
+    "liveSensors": {
+      "header": {
+        "eyebrow": "بث المستشعرات",
+        "title": "المستشعرات المباشرة",
+        "subtitle": "بث البيانات عن بُعد وحالة المستشعرات في الوقت الفعلي."
+      }
+    },
+    "administration": {
+      "header": {
+        "eyebrow": "إدارة المؤسسات",
+        "title": "إدارة الوصول",
+        "subtitle": "إدارة توفر المؤسسة وأدوار المستخدمين والوصول دون مغادرة مساحة عمل الامتثال.",
+        "inviteBtn": "دعوة مستخدم مؤسسة"
+      },
+      "tenantsCard": {
+        "title": "المؤسسات",
+        "description": "{{count}} مؤسسات متاحة"
+      },
+      "usersCard": {
+        "title": "مستخدمو {{name}}",
+        "defaultTenantName": "المؤسسة",
+        "description": "تتحكم الأدوار في الموافقة والمراجعة والوصول التشغيلي."
+      },
+      "table": {
+        "cols": {
+          "user": "المستخدم",
+          "role": "الدور",
+          "access": "الوصول",
+          "status": "الحالة",
+          "actions": ""
+        },
+        "permissionsCount": "{{count}} صلاحية"
+      }
     }
   }
 }

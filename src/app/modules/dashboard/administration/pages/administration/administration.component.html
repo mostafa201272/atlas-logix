@@ -2,16 +2,19 @@
   <!-- START::HEADER -->
   <atlas-dashboard-header
     class="w-full"
-    [eyebrow]="'TENANT ADMINISTRATION'"
-    [title]="'Access management'"
-    [subTitle]="'Manage tenant availability, user roles, and access without leaving the compliance workspace.'"
+    [eyebrow]="baseTranslationPoint + 'header.eyebrow' | translate"
+    [title]="baseTranslationPoint + 'header.title' | translate"
+    [subTitle]="baseTranslationPoint + 'header.subtitle' | translate"
   >
     <!-- START::CONTROLS -->
     <ng-container class="header-controls">
       <!-- START::CONTROLS -->
       <div class="flex flex-row items-center gap-2">
         <!-- START::REVIEW SHIPMENT BTN -->
-        <atlas-button [label]="'Invite tenant user'" size="small"></atlas-button>
+        <atlas-button
+          [label]="baseTranslationPoint + 'header.inviteBtn' | translate"
+          size="small"
+        ></atlas-button>
         <!-- END::REVIEW SHIPMENT BTN -->
       </div>
       <!-- END::CONTROLS -->
@@ -25,9 +28,10 @@
     <!-- START::TENANTS LIST -->
     <atlas-card
       class="col-span-4 w-full"
-      [title]="'Tenants'"
+      [title]="baseTranslationPoint + 'tenantsCard.title' | translate"
       [description]="
-        (tenants().length || 0) + ' accessible organization' + (tenants().length === 1 ? '' : 's')
+        baseTranslationPoint + 'tenantsCard.description'
+          | translate: { count: tenants().length || 0 }
       "
     >
       <!-- START::CARD BODY -->
@@ -52,8 +56,16 @@
     <!-- START::TENANTS USER LIST -->
     <atlas-card
       class="col-span-8 w-full"
-      [title]="(selectedTenant()?.name || 'Tenant') + ' users'"
-      [description]="'Roles control approval, audit, and operational access.'"
+      [title]="
+        baseTranslationPoint + 'usersCard.title'
+          | translate
+            : {
+                name:
+                  selectedTenant()?.name ||
+                  (baseTranslationPoint + 'usersCard.defaultTenantName' | translate)
+              }
+      "
+      [description]="baseTranslationPoint + 'usersCard.description' | translate"
     >
       <!-- START::CARD BODY -->
       <ng-container class="card-body">

@@ -1,0 +1,51 @@
+<!-- START::SENSOR HISTORY TABLE -->
+<div class="w-full">
+  <p-table [columns]="cols" [value]="historyData()">
+    <ng-template #header let-columns>
+      <tr>
+        @for (col of columns; track col) {
+          <th class="uppercase text-sm text-secondary font-semibold">
+            {{ col.header }}
+          </th>
+        }
+      </tr>
+    </ng-template>
+    <ng-template #body let-rowData let-columns="columns">
+      <tr>
+        @for (col of columns; track col) {
+          <td>
+            @switch (col.field) {
+              @case ('timestamp') {
+                <span class="text-xs text-secondary font-medium">{{
+                  rowData.timestamp | date: 'dd MMM yyyy, hh:mm:ss a'
+                }}</span>
+              }
+              @case ('temperature') {
+                <span class="text-sm font-semibold text-primary">{{ rowData.temperatureFormatted }}</span>
+              }
+              @case ('humidity') {
+                <span class="text-sm font-medium text-primary">{{ rowData.humidityFormatted }}</span>
+              }
+              @case ('vibration') {
+                <span class="text-xs text-secondary">{{ rowData.vibrationFormatted }}</span>
+              }
+              @case ('batteryLevel') {
+                <span class="text-xs text-secondary">{{ rowData.batteryFormatted }}</span>
+              }
+              @case ('confidence') {
+                <atlas-status-badge
+                  [status]="rowData.confidenceStatus"
+                  [statusLabel]="rowData.confidenceLabel"
+                ></atlas-status-badge>
+              }
+              @default {
+                <span class="text-xs text-secondary">{{ rowData[col.field] }}</span>
+              }
+            }
+          </td>
+        }
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<!-- END::SENSOR HISTORY TABLE -->

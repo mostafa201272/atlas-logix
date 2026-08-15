@@ -1,0 +1,45 @@
+<!-- START::AUDIT LOG TABLE -->
+<div class="w-full">
+  <p-table [columns]="cols" [value]="auditData()">
+    <ng-template #header let-columns>
+      <tr>
+        @for (col of columns; track col) {
+          <th class="uppercase text-sm text-secondary font-semibold">
+            {{ col.header }}
+          </th>
+        }
+      </tr>
+    </ng-template>
+    <ng-template #body let-rowData let-columns="columns">
+      <tr>
+        @for (col of columns; track col) {
+          <td>
+            @switch (col.field) {
+              @case ('field') {
+                <span class="text-sm font-semibold text-primary capitalize">{{ rowData.fieldFormatted }}</span>
+              }
+              @case ('before') {
+                <span class="text-xs text-secondary font-medium">{{ rowData.beforeValue }}</span>
+              }
+              @case ('after') {
+                <span class="text-xs text-primary font-semibold">{{ rowData.afterValue }}</span>
+              }
+              @case ('changed_by') {
+                <span class="text-xs text-secondary">{{ rowData.changedByFormatted }}</span>
+              }
+              @case ('timestamp') {
+                <span class="text-xs text-secondary font-medium">{{
+                  rowData.timestamp | date: 'dd MMM yyyy, hh:mm:ss a'
+                }}</span>
+              }
+              @default {
+                <span class="text-xs text-secondary">{{ rowData[col.field] }}</span>
+              }
+            }
+          </td>
+        }
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<!-- END::AUDIT LOG TABLE -->

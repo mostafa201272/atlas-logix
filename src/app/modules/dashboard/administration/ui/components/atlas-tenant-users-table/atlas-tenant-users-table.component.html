@@ -4,7 +4,7 @@
     <tr>
       @for (col of columns; track col) {
         <th class="uppercase">
-          {{ col.header }}
+          {{ col.header ? (baseTranslationPoint + 'table.cols.' + col.header | translate) : '' }}
         </th>
       }
     </tr>
@@ -40,6 +40,12 @@
                 </div>
                 <!-- END::PROFILE INFO -->
               </div>
+            }
+            @case ('access') {
+              <span>{{
+                baseTranslationPoint + 'table.permissionsCount'
+                  | translate: { count: rowData.permissionsCount }
+              }}</span>
             }
             @case ('status') {
               <atlas-status-badge

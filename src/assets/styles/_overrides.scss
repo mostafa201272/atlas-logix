@@ -103,3 +103,43 @@
 /**
   END::PRIME-NG TAB VIEWs
 */
+
+/* START OF DYNAMIC DIALOG OVERRIDE [custom-dynamic-dialog] */
+.p-dialog-mask {
+  justify-content: flex-end !important;
+}
+.custom-dynamic-dialog {
+  border-radius: toRem(24);
+  overflow: hidden;
+  margin: 0;
+  max-height: 100%;
+
+  .p-dialog-header {
+    background-color: $card-surface;
+    border-bottom: toRem(0) solid transparent;
+
+    .p-dialog-title {
+      color: $secondary-color;
+    }
+  }
+
+  .p-dialog-content {
+    background-color: $card-surface;
+    .p-confirm-dialog-icon,
+    .p-confirm-dialog-message {
+      color: $secondary-color;
+    }
+  }
+
+  .p-dialog-footer {
+    background-color: $card-surface;
+    border-bottom: toRem(0) solid transparent;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+  }
+}
+.custom-dynamic-dialog.p-dialog-maximized {
+  border-radius: 0 !important;
+}
+/* END OF DYNAMIC DIALOG OVERRIDE [custom-dynamic-dialog] */

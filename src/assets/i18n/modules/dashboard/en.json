@@ -14,6 +14,87 @@
       "administration": {
         "title": "Administration"
       }
+    },
+    "sidebar": {
+      "needHelp": "Need Help?",
+      "reviewApiDocs": "Review API documentation"
+    },
+    "overview": {
+      "header": {
+        "eyebrow": "Operations Overview",
+        "title": "Compliance command center",
+        "subtitle": "Monitor active shipments and prioritize records requiring review.",
+        "reviewShipmentsBtn": "Review shipments"
+      },
+      "metrics": {
+        "onTimeDepartures": "On-Time Departures",
+        "onTimeArrivals": "On-Time Arrivals",
+        "target": "Target: {{percentage}}% ({{current}}/{{total}})"
+      },
+      "recentlyUpdated": {
+        "title": "Recently updated",
+        "description": "Latest operational records",
+        "viewAllBtn": "View all"
+      },
+      "complianceDistribution": {
+        "title": "Compliance distribution",
+        "description": "Current status mix"
+      }
+    },
+    "shipments": {
+      "header": {
+        "eyebrow": "SHIPMENT REGISTRY",
+        "title": "Shipments",
+        "subtitle": "Review routes, conditions, and compliance states."
+      },
+      "details": {
+        "eyebrow": "SHIPMENT REVIEW "
+      },
+      "table": {
+        "cols": {
+          "shipment": "shipment",
+          "route": "route",
+          "warehouse": "warehouse",
+          "status": "status",
+          "compliance": "compliance",
+          "lastUpdated": "last updated",
+          "actions": ""
+        }
+      }
+    },
+    "liveSensors": {
+      "header": {
+        "eyebrow": "SENSOR STREAM",
+        "title": "Live Sensors",
+        "subtitle": "Real-time telemetry and sensor status stream."
+      }
+    },
+    "administration": {
+      "header": {
+        "eyebrow": "TENANT ADMINISTRATION",
+        "title": "Access management",
+        "subtitle": "Manage tenant availability, user roles, and access without leaving the compliance workspace.",
+        "inviteBtn": "Invite tenant user"
+      },
+      "tenantsCard": {
+        "title": "Tenants",
+        "description": "{{count}} accessible organizations"
+      },
+      "usersCard": {
+        "title": "{{name}} users",
+        "defaultTenantName": "Tenant",
+        "description": "Roles control approval, audit, and operational access."
+      },
+      "table": {
+        "cols": {
+          "user": "user",
+          "role": "role",
+          "access": "access",
+          "status": "status",
+          "actions": ""
+        },
+        "permissionsCount": "{{count}} permissions"
+      }
     }
   }
 }

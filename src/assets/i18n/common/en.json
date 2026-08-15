@@ -28,7 +28,15 @@
     "pending": "Pending",
     "available": "Available",
     "active": "Active",
-    "inactive": "Inactive"
+    "inactive": "Inactive",
+    "inTransit": "In Transit",
+    "delivered": "Delivered",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "cancelled": "Cancelled"
+  },
+  "tenant": {
+    "selectTenant": "Tenant"
   },
   "calendar": {
     "utilities": {

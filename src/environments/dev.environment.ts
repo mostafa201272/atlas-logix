@@ -5,4 +5,5 @@ export const environment = {
   shipments: `${BASE_URL}/shipments`,
   tenants: `${BASE_URL}/tenants`,
   stream: `${BASE_URL}/stream`,
+  auditLogs: `${BASE_URL}/audit-logs`,
 };

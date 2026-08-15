@@ -2,16 +2,16 @@
   <!-- START::HEADER -->
   <atlas-dashboard-header
     class="w-full"
-    [eyebrow]="'SHIPMENT REGISTRY'"
-    [title]="'Shipments'"
-    [subTitle]="'Review routes, conditions, and compliance states.'"
+    [eyebrow]="baseTranslationPoint + 'header.eyebrow' | translate"
+    [title]="baseTranslationPoint + 'header.title' | translate"
+    [subTitle]="baseTranslationPoint + 'header.subtitle' | translate"
   >
     <!-- START::CONTROLS -->
     <ng-container class="header-controls">
       <!-- START::CONTROLS -->
       <div class="flex flex-row items-center gap-2">
         <!-- START::REVIEW SHIPMENT BTN -->
-        <atlas-button [icon]="'pi pi-refresh'" size="small"></atlas-button>
+        <atlas-button [icon]="'pi pi-refresh'" size="small" (onClick)="onRefresh()"></atlas-button>
         <!-- END::REVIEW SHIPMENT BTN -->
       </div>
       <!-- END::CONTROLS -->
@@ -19,4 +19,10 @@
     <!-- END::CONTROLS -->
   </atlas-dashboard-header>
   <!-- END::HEADER -->
+
+  <!-- START::SHIPMENT TABLE -->
+  <div class="w-full bg-bg-surface p-6 rounded-2xl border border-border-default shadow">
+    <atlas-shipments-table></atlas-shipments-table>
+  </div>
+  <!-- END::SHIPMENT TABLE -->
 </div>

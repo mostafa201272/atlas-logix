@@ -1,0 +1,78 @@
+<!-- START::SHIPMENT DETAILS -->
+<section class="flex flex-col items-start gap-6">
+  <!-- START::HEADER -->
+  <atlas-dashboard-header
+    class="w-full"
+    [eyebrow]="baseTranslationPoint + 'details.eyebrow' | translate"
+    [title]="shipment().shipmentId"
+    [subTitle]="shipment().trackingReference"
+  >
+  </atlas-dashboard-header>
+  <!-- END::HEADER -->
+
+  <!-- START::DETAILS -->
+  <div class="flex flex-row items-center justify-between w-full">
+    <!-- START::STATUS BADGES -->
+    <div class="flex flex-ROW items-center gap-4">
+      <!-- START::COMPLIANCE STATUS -->
+      <atlas-status-badge
+        [status]="shipment().complianceStatus"
+        [statusLabel]="shipment().complianceStatusLabel | translate"
+      ></atlas-status-badge>
+      <!-- END::COMPLIANCE STATUS -->
+
+      <!-- START::STATUS -->
+      <atlas-status-badge
+        [status]="shipment().status"
+        [statusLabel]="shipment().statusLabel | translate"
+      ></atlas-status-badge>
+      <!-- END::STATUS -->
+    </div>
+    <!-- END::STATUS BADGES -->
+
+    <!-- START::CONTROLS -->
+    <div class="flex flex-row items-center gap-3">
+      <!-- START::TIME-STAMP -->
+      <span class="text-sm text-secondary"
+        >Updated {{ shipment().last_updated | date: 'dd MMM, h:mm a' }}</span
+      >
+      <!-- END::TIME-STAMP -->
+    </div>
+    <!-- END::CONTROLS -->
+  </div>
+  <!-- END::DETAILS -->
+
+  <!-- START::TABS -->
+  <div class="w-full">
+    <p-tabs value="overview">
+      <p-tablist>
+        <p-tab value="overview">Overview</p-tab>
+        <p-tab value="sensor-history">Sensor history</p-tab>
+        <p-tab value="compliance">Compliance</p-tab>
+        <p-tab value="audit-log">Audit log</p-tab>
+      </p-tablist>
+      <p-tabpanels>
+        <p-tabpanel value="overview">
+          <atlas-shipment-overview [shipment]="shipment()"></atlas-shipment-overview>
+        </p-tabpanel>
+        <p-tabpanel value="sensor-history">
+          <atlas-shipment-sensor-history
+            [shipmentId]="shipment().shipmentId"
+          ></atlas-shipment-sensor-history>
+        </p-tabpanel>
+        <p-tabpanel value="compliance">
+          <atlas-shipment-compliance
+            [shipmentId]="shipment().shipmentId"
+          ></atlas-shipment-compliance>
+        </p-tabpanel>
+        <p-tabpanel value="audit-log">
+          <atlas-shipment-audit-log
+            [shipmentId]="shipment().shipmentId"
+          ></atlas-shipment-audit-log>
+        </p-tabpanel>
+      </p-tabpanels>
+    </p-tabs>
+  </div>
+  <!-- END::TABS -->
+</section>
+<!-- END::SHIPMENT DETAILS -->

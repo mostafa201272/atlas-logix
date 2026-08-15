@@ -1,0 +1,61 @@
+<!-- START::SHIPMENT TABLE -->
+<p-table [columns]="cols" [value]="tableData()">
+  <ng-template #header let-columns>
+    <tr>
+      @for (col of columns; track col) {
+        <th class="uppercase text-sm text-secondary font-semibold">
+          {{ col.header ? (baseTranslationPoint + 'table.cols.' + col.header | translate) : '' }}
+        </th>
+      }
+    </tr>
+  </ng-template>
+  <ng-template #body let-rowData let-columns="columns">
+    <tr>
+      @for (col of columns; track col) {
+        <td>
+          @switch (col.field) {
+            @case ('shipment') {
+              <div class="flex flex-col items-start gap-1">
+                <span class="font-semibold text-sm text-primary">{{ rowData.shipmentId }}</span>
+                <span class="text-xs text-secondary">{{ rowData.trackingReference }}</span>
+              </div>
+            }
+            @case ('status') {
+              <atlas-status-badge
+                [status]="rowData.status"
+                [statusLabel]="rowData.statusLabel | translate"
+              ></atlas-status-badge>
+            }
+            @case ('compliance') {
+              <atlas-status-badge
+                [status]="rowData.complianceStatus"
+                [statusLabel]="rowData.complianceStatusLabel | translate"
+              ></atlas-status-badge>
+            }
+            @case ('lastUpdated') {
+              <span class="text-xs text-secondary">
+                {{ rowData.last_updated | date: 'dd MMM, hh:mm a' }}
+              </span>
+            }
+            @case ('actions') {
+              <div class="flex flex-row items-center gap-2">
+                <!-- START::DETAILS -->
+                <atlas-button
+                  [variant]="'text'"
+                  [icon]="'pi pi-arrow-right'"
+                  styleClasses="rtl:rotate-180 text-blue font-semibold"
+                  (onClick)="openShipmentDetails(rowData)"
+                ></atlas-button>
+                <!-- END::DETAILS -->
+              </div>
+            }
+            @default {
+              <span class="text-xs text-secondary">{{ rowData[col.field] }}</span>
+            }
+          }
+        </td>
+      }
+    </tr>
+  </ng-template>
+</p-table>
+<!-- END::SHIPMENT TABLE -->

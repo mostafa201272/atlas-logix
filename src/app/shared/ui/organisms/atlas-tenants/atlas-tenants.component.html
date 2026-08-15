@@ -2,7 +2,7 @@
 <div class="flex flex-row items-center gap-3">
   <!-- START::TENANT LABEL -->
   <atlas-label
-    [value]="'tenant' | translate"
+    [value]="'tenant.selectTenant' | translate"
     [styleClasses]="'text-text-secondary uppercase text-sm font-semibold'"
   ></atlas-label>
   <!-- END::TENANT LABEL -->
@@ -14,7 +14,7 @@
     (ngModelChange)="onTenantChange($event)"
     [class]="'px-1 py-0 rounded-xl'"
     optionLabel="name"
-    placeholder="Select a tenant"
+    [placeholder]="'tenant.selectTenant' | translate"
   />
   <!-- END::TENANT DROPDOWN -->
 </div>

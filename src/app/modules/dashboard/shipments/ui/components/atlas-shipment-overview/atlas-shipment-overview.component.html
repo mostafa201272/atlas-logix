@@ -1,0 +1,91 @@
+<!-- START::OVERVIEW -->
+<section class="flex flex-col items-start gap-20">
+  <!-- START::ROUTE & HANDLING -->
+  <div class="flex flex-col items-start w-full gap-4">
+    <!-- START::HEADER -->
+    <span class="text-lg text-primary font-bold">Route & handling</span>
+    <!-- END::HEADER -->
+
+    <!-- START::CONTENT -->
+    <div class="grid grid-cols-2 w-full gap-12">
+      <!-- START::ITEM [ORIGIN] -->
+      <div class="col-span-1 flex flex-col gap-1 items-start w-full">
+        <span class="text-secondary uppercase text-xs">Origin</span>
+        <span class="text-primary text-sm font-semibold">{{ shipment().origin }}</span>
+      </div>
+      <!-- END::ITEM [ORIGIN] -->
+
+      <!-- START::ITEM [DESTINATION] -->
+      <div class="col-span-1 flex flex-col gap-1 items-start w-full">
+        <span class="text-secondary uppercase text-xs">Destination</span>
+        <span class="text-primary text-sm font-semibold">{{ shipment().destination }}</span>
+      </div>
+      <!-- END::ITEM [DESTINATION] -->
+
+      <!-- START::ITEM [CARRIER] -->
+      <div class="col-span-1 flex flex-col gap-1 items-start w-full">
+        <span class="text-secondary uppercase text-xs">Carrier</span>
+        <span class="text-primary text-sm font-semibold">{{ shipment().carrier }}</span>
+      </div>
+      <!-- END::ITEM [CARRIER] -->
+
+      <!-- START::ITEM [WAREHOUSE] -->
+      <div class="col-span-1 flex flex-col gap-1 items-start w-full">
+        <span class="text-secondary uppercase text-xs">Warehouse</span>
+        <span class="text-primary text-sm font-semibold">{{ shipment().warehouse }}</span>
+      </div>
+      <!-- END::ITEM [WAREHOUSE] -->
+
+      <!-- START::ITEM [CARGO] -->
+      <div class="col-span-1 flex flex-col gap-1 items-start w-full">
+        <span class="text-secondary uppercase text-xs">Cargo</span>
+        <span class="text-primary text-sm font-semibold">{{ shipment().cargoType }}</span>
+      </div>
+      <!-- END::ITEM [CARGO] -->
+
+      <!-- START::ITEM [ESTIMATED ARRIVAL] -->
+      <div class="col-span-1 flex flex-col gap-1 items-start w-full">
+        <span class="text-secondary uppercase text-xs">Estimated Arrival</span>
+        <span class="text-primary text-sm font-semibold">{{
+          shipment().estimated_arrival | date: 'dd MMM yyyy, h:mm a'
+        }}</span>
+      </div>
+      <!-- END::ITEM [ESTIMATED ARRIVAL] -->
+    </div>
+    <!-- END::CONTENT -->
+  </div>
+  <!-- END::ROUTE & HANDLING -->
+
+  <!-- START:: ENVIRONMENTAL THRESHOLDS -->
+  <div class="flex flex-col items-start w-full gap-4">
+    <!-- START::HEADER -->
+    <span class="text-lg text-primary font-bold">Environmental Thresholds</span>
+    <!-- END::HEADER -->
+
+    <!-- START::CONTENT -->
+    <div class="grid grid-cols-2 w-full gap-4">
+      <!-- START::ITEM [Temperature] -->
+      <div
+        class="col-span-1 flex flex-col gap-1 items-start w-full border border-border-default rounded-2xl p-4 bg-bg-canvas"
+      >
+        <span class="text-secondary uppercase text-xs">Temperature</span>
+        <span class="text-primary text-2xl font-semibold"
+          >{{ shipment()?.temperature_min }} - {{ shipment().temperature_max }} °C</span
+        >
+      </div>
+      <!-- END::ITEM [Temperature] -->
+
+      <!-- START::ITEM [Humidity] -->
+      <div
+        class="col-span-1 flex flex-col gap-1 items-start w-full border border-border-default rounded-2xl p-4 bg-bg-canvas"
+      >
+        <span class="text-secondary uppercase text-xs">Humidity</span>
+        <span class="text-primary text-2xl font-semibold">{{ shipment().humidity_max }}%</span>
+      </div>
+      <!-- END::ITEM [Humidity] -->
+    </div>
+    <!-- END::CONTENT -->
+  </div>
+  <!-- END::ENVIRONMENTAL THRESHOLDS -->
+</section>
+<!-- END::OVERVIEW -->

@@ -17,6 +17,7 @@ export abstract class AppBase implements OnDestroy {
    */
   router = inject(Router);
   activeRoute = inject(ActivatedRoute);
+  dialogService = inject(DialogService);
   messageService = inject(MessageService);
 
   /**

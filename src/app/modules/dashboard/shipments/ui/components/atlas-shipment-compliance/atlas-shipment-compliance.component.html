@@ -1,0 +1,168 @@
+<!-- START::COMPLIANCE -->
+<section class="w-full flex flex-col items-start gap-7">
+  <!-- START::STATISTICS -->
+  <div class="w-full grid grid-cols-4 gap-3">
+    <!-- START::ITEM [SENSOR STATUS]-->
+    <div
+      class="col-span-1 rounded-xl border border-border-default p-4 flex flex-col items-start gap-2"
+      [class.border-status-success-text]="report()?.complianceStatus === 'APPROVED'"
+      [class.border-status-warning-text]="report()?.complianceStatus === 'PENDING'"
+      [class.border-status-negative-text]="report()?.complianceStatus === 'REJECTED'"
+    >
+      <!-- START::TITLE -->
+      <span class="text-xs text-secondary">Compliance status</span>
+      <!-- END::TITLE -->
+
+      <!-- START::VALUE -->
+      <span
+        class="text-2xl font-bold"
+        [class.text-status-success-text]="report()?.complianceStatus === 'APPROVED'"
+        [class.text-status-warning-text]="report()?.complianceStatus === 'PENDING'"
+        [class.text-status-negative-text]="report()?.complianceStatus === 'REJECTED'"
+        >{{ report()?.complianceStatus }}</span
+      >
+      <!-- END::VALUE -->
+    </div>
+    <!-- END::ITEM [SENSOR STATUS] -->
+
+    <!-- START::ITEM [SENSOR CONFIDENCE]-->
+    <div
+      class="col-span-1 rounded-xl border border-border-default p-4 flex flex-col items-start gap-2"
+    >
+      <!-- START::TITLE -->
+      <span class="text-xs text-secondary">Sensor confidence</span>
+      <!-- END::TITLE -->
+
+      <!-- START::VALUE -->
+      <span class="text-2xl font-bold">{{ report()?.sensorConfidence || '—' }}</span>
+      <!-- END::VALUE -->
+    </div>
+    <!-- END::ITEM [SENSOR CONFIDENCE] -->
+
+    <!-- START::ITEM [SENSOR EVENTS]-->
+    <div
+      class="col-span-1 rounded-xl border border-border-default p-4 flex flex-col items-start gap-2"
+    >
+      <!-- START::TITLE -->
+      <span class="text-xs text-secondary">Sensor events</span>
+      <!-- END::TITLE -->
+
+      <!-- START::VALUE -->
+      <span class="text-2xl font-bold">{{ report()?.sensorEventCount ?? 0 }}</span>
+      <!-- END::VALUE -->
+    </div>
+    <!-- END::ITEM [SENSOR EVENTS] -->
+
+    <!-- START::ITEM [EXCURSION]-->
+    <div
+      class="col-span-1 rounded-xl border border-border-default p-4 flex flex-col items-start gap-2"
+      [class.border-status-warning-text]="report()?.hasExcursion"
+    >
+      <!-- START::TITLE -->
+      <span class="text-xs text-secondary">Excursion</span>
+      <!-- END::TITLE -->
+
+      <!-- START::VALUE -->
+      <span class="text-2xl font-bold" [class.text-status-warning-text]="report()?.hasExcursion">{{
+        report()?.hasExcursion ? 'Detected' : 'None'
+      }}</span>
+      <!-- END::VALUE -->
+    </div>
+    <!-- END::ITEM [EXCURSION] -->
+  </div>
+  <!-- END::STATISTICS -->
+
+  <!-- START::TEMPERATURE EXCURSION DETECTED -->
+  <div class="w-full flex flex-col items-start gap-6 border border-border-default p-4 rounded-xl">
+    <!-- START::HEADER -->
+    <div class="flex flex-col items-start gap-2">
+      <!-- START::TITLE -->
+      <span class="text-lg text-primary font-bold">Temperature excursion summary</span>
+      <!-- END::TITLE -->
+
+      <!-- START::SUBTITLE -->
+      <span class="text-sm text-secondary"
+        >Recorded telemetry and threshold report. Review the evidence before making a compliance
+        decision.</span
+      >
+      <!-- END::SUBTITLE -->
+    </div>
+    <!-- END::HEADER -->
+
+    <!-- START::STATISTICS -->
+    <div class="w-full grid grid-cols-4 gap-3">
+      <!-- START::ITEM [REQUIRED RANGE]-->
+      <div class="col-span-1 flex flex-col items-start">
+        <!-- START::TITLE -->
+        <span class="text-xs text-secondary uppercase">REQUIRED RANGE</span>
+        <!-- END::TITLE -->
+
+        <!-- START::VALUE -->
+        <span class="text-2xl font-bold">2–8°C</span>
+        <!-- END::VALUE -->
+      </div>
+      <!-- END::ITEM [REQUIRED RANGE] -->
+
+      <!-- START::ITEM [RECORDED RANGE]-->
+      <div class="col-span-1 flex flex-col items-start">
+        <!-- START::TITLE -->
+        <span class="text-xs text-secondary uppercase">RECORDED RANGE</span>
+        <!-- END::TITLE -->
+
+        <!-- START::VALUE -->
+        <span class="text-2xl font-bold">{{ report()?.latestTemperature ?? '—' }}°C</span>
+        <!-- END::VALUE -->
+      </div>
+      <!-- END::ITEM [RECORDED RANGE] -->
+
+      <!-- START::ITEM [EXCURSION]-->
+      <div class="col-span-1 flex flex-col items-start">
+        <!-- START::TITLE -->
+        <span class="text-xs text-secondary uppercase">EXCURSION</span>
+        <!-- END::TITLE -->
+
+        <!-- START::VALUE -->
+        <span class="text-2xl font-bold">{{ report()?.hasExcursion ? 'Detected' : 'None' }}</span>
+        <!-- END::VALUE -->
+      </div>
+      <!-- END::ITEM [EXCURSION] -->
+
+      <!-- START::ITEM [CONFIDENCE]-->
+      <div class="col-span-1 flex flex-col items-start">
+        <!-- START::TITLE -->
+        <span class="text-xs text-secondary uppercase">CONFIDENCE</span>
+        <!-- END::TITLE -->
+
+        <!-- START::VALUE -->
+        <span class="text-2xl font-bold">{{ report()?.sensorConfidence || '—' }}</span>
+        <!-- END::VALUE -->
+      </div>
+      <!-- END::ITEM [CONFIDENCE] -->
+    </div>
+    <!-- END::STATISTICS -->
+  </div>
+  <!-- END::TEMPERATURE EXCURSION DETECTED -->
+
+  <!-- START::APPROVE COMPLAINS -->
+  @if (report()?.complianceStatus === 'PENDING') {
+    <div class="flex flex-row items-end justify-end w-full gap-2">
+      <!-- START::REJECT BTN -->
+      <atlas-button
+        variant="outlined"
+        label="Reject"
+        severity="danger"
+        (onClick)="changeComplianceStatus('REJECTED')"
+      ></atlas-button>
+      <!-- END::REJECT BTN -->
+
+      <!-- START::APPROVE BTN -->
+      <atlas-button
+        label="Approve compliance"
+        (onClick)="changeComplianceStatus('APPROVED')"
+      ></atlas-button>
+      <!-- END::APPROVE BTN -->
+    </div>
+    <!-- END::APPROVE COMPLAINS -->
+  }
+</section>
+<!-- END::COMPLIANCE -->
