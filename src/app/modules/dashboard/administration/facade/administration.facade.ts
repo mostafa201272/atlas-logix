@@ -1,5 +1,7 @@
 import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AdministrationStore } from '../store/administration.store';
+import { AdministrationApiService } from '../services/administration-api.service';
 import { ITenant } from '@modules/auth/models/interfaces';
 
 @Injectable({
@@ -7,9 +9,10 @@ import { ITenant } from '@modules/auth/models/interfaces';
 })
 export class AdministrationFacade {
   /**
-   * INJECTION - Administration Store
+   * INJECTIONS - Administration Store & API Service
    */
   private readonly adminStore = inject(AdministrationStore);
+  private readonly adminApiService = inject(AdministrationApiService);
 
   /**
    * STORE SIGNALS
@@ -41,6 +44,18 @@ export class AdministrationFacade {
    */
   loadTenantUsers(tenantId: string, userId?: string): void {
     this.adminStore.loadTenantUsers({ tenantId, userId });
+  }
+
+  /**
+   * Update Tenant User Role (/api/v1/tenants/:tenantId/users/:userId)
+   */
+  updateTenantUserRole(
+    tenantId: string,
+    userId: string,
+    role: string,
+    isActive: boolean = true,
+  ): Observable<any> {
+    return this.adminApiService.updateTenantUserRole(tenantId, userId, role, isActive);
   }
 
   /**

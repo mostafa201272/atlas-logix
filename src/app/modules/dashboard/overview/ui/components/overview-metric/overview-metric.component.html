@@ -4,9 +4,10 @@
 >
   <!-- START::SYMBOL -->
   <div
-    class="bg-bg-accent/10 w-12 h-12 rounded-xl flex flex-col shrink-0 items-center justify-center"
+    class="w-12 h-12 rounded-xl flex flex-col shrink-0 items-center justify-center"
+    [class]="[symbolBackground()]"
   >
-    <span class="text-text-accent font-bold text-lg">{{ symbol() }}</span>
+    <span class="font-bold text-lg" [class]="symbolColor()">{{ symbol() }}</span>
   </div>
   <!-- END::SYMBOL -->
 

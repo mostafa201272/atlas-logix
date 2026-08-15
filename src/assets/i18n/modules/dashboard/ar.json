@@ -27,9 +27,14 @@
         "reviewShipmentsBtn": "مراجعة الشحنات"
       },
       "metrics": {
-        "onTimeDepartures": "المغادارات في الوقت المحدد",
-        "onTimeArrivals": "الوصول في الوقت المحدد",
-        "target": "الهدف: {{percentage}}% ({{current}}/{{total}})"
+        "totalShipments": "إجمالي الشحنات",
+        "acrossSelectedTenant": "عبر المؤسسة المحددة",
+        "inTransit": "قيد النقل",
+        "currentlyMoving": "في مرحلة النقل حالياً",
+        "approved": "الامتثال المعتمد",
+        "complianceLocked": "الامتثال تم التحقق منه واعتماده",
+        "needsAttention": "يتطلب الانتباه",
+        "pendingOrRejected": "سجلات معلقة أو مرفوضة"
       },
       "recentlyUpdated": {
         "title": "المحدثة مؤخراً",

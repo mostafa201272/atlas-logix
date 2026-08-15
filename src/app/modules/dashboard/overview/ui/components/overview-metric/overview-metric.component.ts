@@ -13,6 +13,12 @@ export class OverviewMetricComponent {
   symbol = input.required<string>();
 
   /**
+   * Optional - Symbol color & background
+   */
+  symbolColor = input<string>('text-blue');
+  symbolBackground = input<string>('bg-blue/10');
+
+  /**
    * Title of the metric
    */
   title = input.required<string>();

@@ -14,6 +14,7 @@
         <atlas-button
           [label]="baseTranslationPoint + 'header.reviewShipmentsBtn' | translate"
           size="small"
+          (onClick)="navigateToShipments()"
         ></atlas-button>
         <!-- END::REVIEW SHIPMENT BTN -->
       </div>
@@ -25,13 +26,15 @@
 
   <!-- START::METRICS -->
   <div class="grid grid-cols-4 w-full gap-8">
-    @for (metric of metrics; track $index) {
+    @for (metric of metrics(); track $index) {
       <atlas-overview-metric
         class="col-span-1"
         [title]="metric.titleKey | translate"
         [value]="metric.value"
-        [details]="metric.detailsKey | translate: metric.detailsParams"
+        [details]="metric.detailsKey | translate"
         [symbol]="metric.symbol"
+        [symbolColor]="metric.symbolColor"
+        [symbolBackground]="metric.symbolBackground"
       ></atlas-overview-metric>
     }
   </div>
@@ -50,7 +53,9 @@
         <div class="flex flex-row items-center gap-3">
           <atlas-button
             variant="text"
+            class="text-blue"
             [label]="baseTranslationPoint + 'recentlyUpdated.viewAllBtn' | translate"
+            (onClick)="navigateToShipments()"
           ></atlas-button>
         </div>
       </ng-container>
@@ -59,12 +64,20 @@
       <!-- START::CARD BODY -->
       <ng-container class="card-body">
         <!-- START::RECORDS LIST -->
-        <atlas-overview-operational-record
-          [shipmentID]="'50023478'"
-          [shipmentRoute]="'LHR → DOH'"
-          [status]="'pending'"
-        >
-        </atlas-overview-operational-record>
+        <div class="flex flex-col items-start gap-6 w-full">
+          @for (record of recentShipments(); track record.shipmentID) {
+            <atlas-overview-operational-record
+              [class]="'w-full'"
+              [shipmentID]="record.shipmentID"
+              [shipmentRoute]="record.shipmentRoute"
+              [status]="record.status"
+              [timestamp]="record.timestamp"
+            >
+            </atlas-overview-operational-record>
+          } @empty {
+            <span class="text-sm text-secondary">No recent shipments found.</span>
+          }
+        </div>
         <!-- END::RECORDS LIST -->
       </ng-container>
       <!-- END::CARD BODY -->
@@ -78,7 +91,9 @@
       [description]="baseTranslationPoint + 'complianceDistribution.description' | translate"
     >
       <!-- START::CARD BODY -->
-      <ng-container class="card-body"> </ng-container>
+      <ng-container class="card-body">
+        <atlas-overview-compliance-distribution-chart></atlas-overview-compliance-distribution-chart>
+      </ng-container>
       <!-- END::CARD BODY -->
     </atlas-card>
     <!-- END::Compliance distribution CARD -->

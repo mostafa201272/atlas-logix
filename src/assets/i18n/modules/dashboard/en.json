@@ -27,9 +27,14 @@
         "reviewShipmentsBtn": "Review shipments"
       },
       "metrics": {
-        "onTimeDepartures": "On-Time Departures",
-        "onTimeArrivals": "On-Time Arrivals",
-        "target": "Target: {{percentage}}% ({{current}}/{{total}})"
+        "totalShipments": "Total Shipments",
+        "acrossSelectedTenant": "Across selected tenant",
+        "inTransit": "In Transit",
+        "currentlyMoving": "Currently in transit",
+        "approved": "Approved Compliance",
+        "complianceLocked": "Compliance verified & approved",
+        "needsAttention": "Needs Attention",
+        "pendingOrRejected": "Pending or rejected records"
       },
       "recentlyUpdated": {
         "title": "Recently updated",

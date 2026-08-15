@@ -29,4 +29,19 @@ export class AdministrationApiService {
       : TENANTS_APIS.TENANTS_USERS(tenantId);
     return this.httpService.getData<ITenantUsersApiResponse>(url);
   }
+
+  /**
+   * POST - Update Tenant User Role (/api/v1/tenants/:tenantId/users/:userId)
+   */
+  updateTenantUserRole(
+    tenantId: string,
+    userId: string,
+    role: string,
+    isActive: boolean = true,
+  ): Observable<any> {
+    return this.httpService.patchData(TENANTS_APIS.TENANT_USER(tenantId, userId), {
+      role,
+      isActive,
+    });
+  }
 }

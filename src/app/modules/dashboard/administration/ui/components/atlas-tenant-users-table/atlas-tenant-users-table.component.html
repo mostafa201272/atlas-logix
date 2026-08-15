@@ -54,7 +54,18 @@
               ></atlas-status-badge>
             }
             @case ('role') {
-              <span>{{ rowData.role }}</span>
+              <!-- START::TENANT DROPDOWN -->
+              <p-select
+                [options]="roles()"
+                [appendTo]="'body'"
+                [ngModel]="rowData.selectedRole"
+                (ngModelChange)="onRoleChange(rowData, $event)"
+                [class]="'px-1 py-0 rounded-xl'"
+                optionLabel="name"
+                optionValue="key"
+                [placeholder]="'tenant.selectTenant' | translate"
+              />
+              <!-- END::TENANT DROPDOWN -->
             }
             @case ('actions') {
               <div class="flex flex-row items-center gap-2">

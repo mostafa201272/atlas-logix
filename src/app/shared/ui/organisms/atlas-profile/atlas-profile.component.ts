@@ -1,10 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { AuthFacade } from '@modules/auth/facade/auth.facade';
+import { TranslatePipe } from '@ngx-translate/core';
 import { AtlasButtonComponent } from '@shared/ui/atoms/atlas-button/atlas-button.component';
 
 @Component({
   selector: 'atlas-profile',
-  imports: [AtlasButtonComponent],
+  imports: [TranslatePipe, AtlasButtonComponent],
   templateUrl: './atlas-profile.component.html',
   styleUrl: './atlas-profile.component.scss',
 })

@@ -25,17 +25,19 @@
   <!-- END::SHIPMENT DETAILS -->
 
   <!-- START::STATUS -->
-  <div class="">
+  <div class="flex w-fit">
     <atlas-status-badge
       [status]="status()"
-      [statusLabel]="('status.' + status()) | translate"
+      [statusLabel]="'status.' + status() | translate"
     ></atlas-status-badge>
   </div>
   <!-- END::STATUS -->
 
   <!-- START::DATE & TIME -->
   <div class="flex w-fit">
-    <span class="w-fit text-secondary text-sm whitespace-nowrap">12 Jul, 16:35</span>
+    <span class="w-fit text-secondary text-sm whitespace-nowrap">{{
+      timestamp() ? (timestamp() | date: 'dd MMM, HH:mm') : '—'
+    }}</span>
   </div>
   <!-- END::DATE & TIME -->
 </div>

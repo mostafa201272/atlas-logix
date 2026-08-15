@@ -93,6 +93,10 @@
     .p-tablist-tab-list {
       border-color: transparent;
     }
+    .p-tab-active {
+      color: $color-text-accent;
+      border-bottom: toRem(3) solid $color-text-accent;
+    }
   }
   .p-tabpanels {
     background-color: transparent;

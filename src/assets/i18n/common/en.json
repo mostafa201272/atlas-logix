@@ -38,6 +38,13 @@
   "tenant": {
     "selectTenant": "Tenant"
   },
+  "roles": {
+    "TENANT_ADMIN": "Tenant Admin",
+    "COMPLIANCE_AUDITOR": "Compliance Auditor",
+    "OPERATIONS_MANAGER": "Operations Manager",
+    "VIEWER": "Viewer",
+    "WAREHOUSE_SUPERVISOR": "Warehouse Supervisor"
+  },
   "calendar": {
     "utilities": {
       "day": "Day",

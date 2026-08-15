@@ -21,6 +21,8 @@
     "@ngx-translate/core": "^18.0.0",
     "@ngx-translate/http-loader": "^18.0.0",
     "@primeuix/themes": "^2.0.3",
+    "apexcharts": "^6.8.0",
+    "ng-apexcharts": "^3.0.0",
     "ng-inline-svg-2": "^20.0.1",
     "ngx-translate-multi-http-loader": "^20.0.0",
     "primeicons": "^8.0.0",
