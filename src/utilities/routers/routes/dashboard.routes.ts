@@ -1,3 +1,5 @@
+import { EPermission } from '@core/permissions/models/enums/permissions.enum';
+
 /**
  * DASHBOARD ROUTES COMMONs
  */
@@ -35,6 +37,7 @@ export const DASHBOARD_ROUTES = (baseRoute: string): any => ({
     label: `${BASE_TRANSLATION_KEY}.menu.liveSensors.title`,
     itemsBaseTranslationKey: `${BASE_TRANSLATION_KEY}.liveSensors.`,
     icon: `pi pi-microchip`,
+    permission: EPermission.LIVE_STREAM,
   },
 
   administration: {
@@ -43,5 +46,6 @@ export const DASHBOARD_ROUTES = (baseRoute: string): any => ({
     label: `${BASE_TRANSLATION_KEY}.menu.administration.title`,
     itemsBaseTranslationKey: `${BASE_TRANSLATION_KEY}.administration.`,
     icon: `pi pi-cog`,
+    permission: EPermission.TENANT_USER_ADMIN,
   },
 });

@@ -1,0 +1,6 @@
+export enum EPermission {
+  TENANT_USER_ADMIN = 'TENANT_USER_ADMIN',
+  AUDIT_LOGS = 'AUDIT_LOGS',
+  LIVE_STREAM = 'LIVE_STREAM',
+  APPROVE = 'APPROVE',
+}

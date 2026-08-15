@@ -11,6 +11,8 @@ import { AtlasShipmentSensorHistoryComponent } from '../../components/atlas-ship
 import { AtlasShipmentComplianceComponent } from '../../components/atlas-shipment-compliance/atlas-shipment-compliance.component';
 import { AtlasShipmentAuditLogComponent } from '../../components/atlas-shipment-audit-log/atlas-shipment-audit-log.component';
 import { ShipmentsFacade } from '../../../facade/shipments.facade';
+import { EPermission } from '@core/permissions/models/enums/permissions.enum';
+import { AtlasHasPermissionDirective } from '@shared/directives/has-permission.directive';
 
 @Component({
   selector: 'atlas-shipment-details',
@@ -20,6 +22,7 @@ import { ShipmentsFacade } from '../../../facade/shipments.facade';
     TabsModule,
     AtlasDashboardHeaderComponent,
     AtlasStatusBadgeComponent,
+    AtlasHasPermissionDirective,
     AtlasShipmentOverviewComponent,
     AtlasShipmentSensorHistoryComponent,
     AtlasShipmentComplianceComponent,
@@ -30,6 +33,11 @@ import { ShipmentsFacade } from '../../../facade/shipments.facade';
 })
 export class AtlasShipmentDetailsComponent extends DialogBase {
   private readonly shipmentsFacade = inject(ShipmentsFacade);
+
+  /**
+   * Permission Enum reference for template
+   */
+  readonly EPermission = EPermission;
 
   /**
    * Base translation point for shipments

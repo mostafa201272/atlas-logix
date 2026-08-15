@@ -5,7 +5,13 @@ import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { tap, switchMap, pipe, of, catchError, map, Observable } from 'rxjs';
 import { AuthApiService } from '../services/auth-api.service';
 import { StorageService } from '@core/services/storage.service';
-import { type ITenant, type IAuthState, type ILoginRequest, type ILoginResponse, type IUserResponse } from '../models/interfaces';
+import {
+  type ITenant,
+  type IAuthState,
+  type ILoginRequest,
+  type ILoginResponse,
+  type IUserResponse,
+} from '../models/interfaces';
 import { MODULES_ROUTES } from '@utilities/routers';
 import { AUTH_KEYS } from '../models/enums';
 
@@ -39,8 +45,9 @@ export const AuthStore = signalStore(
     ),
     token: computed(() => store.data()?.token || storageService.getStorage(AUTH_KEYS.TOKEN)),
     tenants: computed(() => store.data()?.tenants || []),
-    selectedTenant: computed(
-      () => store.selectedTenant() || store.data()?.tenants?.[0] || null,
+    selectedTenant: computed(() => store.selectedTenant() || store.data()?.tenants?.[0] || null),
+    userRole: computed(
+      () => (store.data() as any)?.role || (store.data() as any)?.userRole || 'VIEWER',
     ),
   })),
 
@@ -135,7 +142,12 @@ export const AuthStore = signalStore(
           }),
           catchError((error: any) => {
             const errorMessage = error?.error?.message || error?.message || 'Session expired';
-            patchState(store, { data: null, selectedTenant: null, error: errorMessage, isLoading: false });
+            patchState(store, {
+              data: null,
+              selectedTenant: null,
+              error: errorMessage,
+              isLoading: false,
+            });
             storageService.removeStorageItem(AUTH_KEYS.TOKEN);
             router.navigate([MODULES_ROUTES.modules.auth.login.route]);
             return of(false);

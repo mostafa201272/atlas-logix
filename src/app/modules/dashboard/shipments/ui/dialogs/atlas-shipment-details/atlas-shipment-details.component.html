@@ -58,7 +58,7 @@
         <p-tab value="compliance">
           {{ baseTranslationPoint + 'details.tabs.compliance' | translate }}
         </p-tab>
-        <p-tab value="audit-log">
+        <p-tab *atlasHasPermission="EPermission.AUDIT_LOGS" value="audit-log">
           {{ baseTranslationPoint + 'details.tabs.auditLog' | translate }}
         </p-tab>
       </p-tablist>
@@ -76,7 +76,7 @@
             [shipmentId]="shipment().shipmentId"
           ></atlas-shipment-compliance>
         </p-tabpanel>
-        <p-tabpanel value="audit-log">
+        <p-tabpanel *atlasHasPermission="EPermission.AUDIT_LOGS" value="audit-log">
           <atlas-shipment-audit-log
             [shipmentId]="shipment().shipmentId"
           ></atlas-shipment-audit-log>

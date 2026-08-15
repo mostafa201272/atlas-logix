@@ -6,5 +6,3 @@ export interface IAuthState {
   isLoading: boolean;
   error: string | null;
 }
-
-

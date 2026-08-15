@@ -11,14 +11,16 @@ export const extractSubRoutesFn = (module: any): MenuItem[] => {
       key !== 'featureKey' &&
       key !== 'features' &&
       key !== 'redirectTo' &&
-      key !== 'label'
+      key !== 'label' &&
+      key !== 'permission'
     ) {
       items.push({
         title: module[key].label,
         icon: module[key].icon,
         routerLink: module[key].route,
+        permission: module[key].permission,
         items: extractSubRoutesFn(module[key]),
-      });
+      } as MenuItem & { permission?: any });
     }
   }
   return items;

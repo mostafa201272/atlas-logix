@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AppBase } from '@core/bases/app-base.base';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/api';
 import { AtlasIdentityComponent } from '@shared/ui/atoms/atlas-identity/atlas-identity.component';
 import { extractSubRoutesFn } from '@utilities/helpers/extract-subroutes.helper';
+import { PermissionsService } from '@core/permissions/services/permissions.service';
+import { EPermission } from '@core/permissions/models/enums/permissions.enum';
 
 @Component({
   selector: 'atlas-sidebar',
@@ -13,8 +15,24 @@ import { extractSubRoutesFn } from '@utilities/helpers/extract-subroutes.helper'
   styleUrl: './atlas-sidebar.component.scss',
 })
 export class AtlasSidebarComponent extends AppBase {
+  private readonly permissionsService = inject(PermissionsService);
+
+  private readonly rawNavItems: (MenuItem & { permission?: EPermission })[] = extractSubRoutesFn(
+    this.MODULES_ROUTES.modules.dashboard,
+  );
+
   /**
-   * DYNAMIC NAVIGATION ITEMS
+   * DYNAMIC NAVIGATION ITEMS (Filtered by RBAC permissions)
    */
-  navItems: MenuItem[] = extractSubRoutesFn(this.MODULES_ROUTES.modules.dashboard);
+  readonly navItems = computed(() => {
+    // Computed dependency on permissions signal
+    this.permissionsService.userPermissions();
+
+    return this.rawNavItems.filter((item) => {
+      if (!item.permission) {
+        return true;
+      }
+      return this.permissionsService.hasPermission(item.permission);
+    });
+  });
 }

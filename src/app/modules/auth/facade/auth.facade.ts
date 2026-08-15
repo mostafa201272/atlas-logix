@@ -22,6 +22,7 @@ export class AuthFacade {
   readonly token = this.authStore.token;
   readonly tenants = this.authStore.tenants;
   readonly selectedTenant = this.authStore.selectedTenant;
+  readonly userRole = this.authStore.userRole;
 
   /**
    * Update Selected Tenant
@@ -51,5 +52,3 @@ export class AuthFacade {
     this.authStore.reset();
   }
 }
-
-
