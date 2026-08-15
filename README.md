@@ -14,13 +14,13 @@
 
 ## 🛠️ Technology Stack
 
-* **Core Framework**: Angular `21.2.8` (Standalone Components, Signals, Control Flow `@if`/`@for`)
-* **State Management**: `@ngrx/signals` (`SignalStore` with computed signals and `rxMethod`)
-* **UI & Components**: [PrimeNG 21](https://primeng.org/) (Tables, Dialogs, Tabs, Selects, Toast Notifications)
-* **Styling**: TailwindCSS 4, Custom SCSS CSS Variables (Dark/Light token system)
-* **Data Visualization**: [ApexCharts](https://apexcharts.com/) (`ng-apexcharts`)
-* **Localization**: `@ngx-translate/core` (English `en` & Arabic `ar`, with dynamic LTR/RTL support)
-* **HTTP & SSE**: Native Angular `HttpClient`, RxJS, and `ReadableStream` reader for real-time SSE telemetry streams
+- **Core Framework**: Angular `21.2.8` (Standalone Components, Signals, Control Flow `@if`/`@for`)
+- **State Management**: `@ngrx/signals` (`SignalStore` with computed signals and `rxMethod`)
+- **UI & Components**: [PrimeNG 21](https://primeng.org/) (Tables, Dialogs, Tabs, Selects, Toast Notifications)
+- **Styling**: TailwindCSS 4, Custom SCSS CSS Variables (Dark/Light token system)
+- **Data Visualization**: [ApexCharts](https://apexcharts.com/) (`ng-apexcharts`)
+- **Localization**: `@ngx-translate/core` (English `en` & Arabic `ar`, with dynamic LTR/RTL support)
+- **HTTP & SSE**: Native Angular `HttpClient`, RxJS, and `ReadableStream` reader for real-time SSE telemetry streams
 
 ---
 
@@ -31,6 +31,7 @@ Before running the application locally, ensure you have **Node.js** (v18.x LTS o
 ### Installing Node.js & npm
 
 #### 🪟 Windows
+
 1. Download the latest LTS installer from [nodejs.org](https://nodejs.org/).
 2. Run the `.msi` file and follow the installation wizard (ensure **npm package manager** is checked).
 3. Alternatively, install via **winget**:
@@ -44,6 +45,7 @@ Before running the application locally, ensure you have **Node.js** (v18.x LTS o
    ```
 
 #### 🍏 macOS
+
 - **Option A (Homebrew)**:
   ```bash
   brew install node
@@ -57,12 +59,16 @@ Before running the application locally, ensure you have **Node.js** (v18.x LTS o
   ```
 
 #### 🐧 Linux (Ubuntu / Debian)
+
 Using NodeSource Node.js 20.x repository:
+
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
+
 Verify installation:
+
 ```bash
 node -v
 npm -v
@@ -75,47 +81,40 @@ npm -v
 Follow these steps to clone and run AtlasLogix locally:
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/mostafa201272/atlas-logix.git
 cd atlas-logix
 ```
 
 ### 2. Install Project Dependencies
+
 ```bash
 npm install
 ```
 
 ### 3. Start the Local Development Server
+
 ```bash
 npm start
 ```
-*Or using Angular CLI directly:*
+
+_Or using Angular CLI directly:_
+
 ```bash
 npx ng serve
 ```
 
 ### 4. Open in Browser
+
 Navigate to **`http://localhost:4200/`** in your browser. The application will reload automatically when source files are modified.
-
----
-
-## 🔐 Test Credentials & Permission Matrix
-
-You can test different user permissions using the following credentials:
-
-| Role | Email | Password | Allowed Capabilities |
-| :--- | :--- | :--- | :--- |
-| **Tenant Administrator** | `admin.mostafa-elsherbiniy@atlaslogix.test` | `tq0N94TaMbZXZO8z` | Tenant/User Admin, Audit Logs, Live Stream |
-| **Compliance Auditor** | `frontend.mostafa.elsherbiniy@atlaslogix.test` | `Nus0ohQ2gCNDwYpK` | Compliance Approval, Audit Logs, Live Stream |
-| **Operations Manager** | `operations.mostafa-elsherbiniy@atlaslogix.test` | `GEm6vEXV713KhXRv` | Audit Logs, Live Stream |
-| **Warehouse Supervisor** | `warehouse.mostafa-elsherbiniy@atlaslogix.test` | `J2yb0MSOT2_NdUei` | Live Stream Only |
-| **Viewer** | `viewer.mostafa-elsherbiniy@atlaslogix.test` | `hGurs9DFo2SPEsU6` | Audit Logs Only |
 
 ---
 
 ## 🏢 Multi-Tenant Support
 
 AtlasLogix provides dynamic context switching between assigned tenants:
+
 - **Primary Tenant**: `TENANT-MOSTAFA-ELSHERBINIY`
 - **Secondary Tenant**: `TENANT-MOSTAFA-ELSHERBINIY-MENA`
 
