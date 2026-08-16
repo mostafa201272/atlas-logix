@@ -2,12 +2,12 @@
 <div class="flex flex-row items-center" [class]="gapClass()">
   <!-- START::LOGO -->
   <div class="flex shrink-0">
-    <span
-      class="flex shrink-0 [&>svg]:w-full [&>svg]:h-full"
-      [inlineSVG]="'assets/media/svg/logo.svg'"
+    <img
+      class="flex shrink-0"
+      src="assets/media/svg/logo.svg"
       [style.width.px]="logoDimensions()"
       [style.height.px]="logoDimensions()"
-    ></span>
+    />
   </div>
   <!-- END::LOGO -->
 
@@ -36,4 +36,3 @@
   }
 </div>
 <!-- END::IDENTITY -->
-
