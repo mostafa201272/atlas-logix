@@ -1,9 +1,20 @@
 <!-- START::NAVBAR -->
-<nav class="w-full border-b border-border-default bg-bg-surface px-8 py-4">
+<nav class="w-full border-b border-border-default bg-bg-surface px-4 md:px-8 py-4 relative z-10">
   <!-- START::NAVBAR ITEMS CONTAINER -->
   <div class="w-full flex flex-row items-center justify-between gap-4">
     <!-- START::CONTENT -->
     <div class="flex flex-row items-center gap-3">
+      <!-- START::SIDEBAR TOGGLER -->
+      <atlas-button
+        [class]="'lg:hidden'"
+        [variant]="'text'"
+        [styleClasses]="'text-blue'"
+        [icon]="'pi pi-bars text-2xl'"
+        [size]="'large'"
+        (onClick)="onSidebarTogglerClick.emit()"
+      ></atlas-button>
+      <!-- END::SIDEBAR TOGGLER -->
+
       <!-- START::TENANTS -->
       <atlas-tenants></atlas-tenants>
       <!-- END::TENANTS -->
@@ -11,7 +22,7 @@
     <!-- END::CONTENT -->
 
     <!-- START::CONTROLS -->
-    <div class="flex flex-row items-center gap-3">
+    <div class="flex flex-row w-fit items-center gap-1 md:gap-3">
       <!-- START::LANGUAGE SWITCH -->
       <atlas-lang-switch></atlas-lang-switch>
       <!-- END::LANGUAGE SWITCH -->

@@ -1,12 +1,12 @@
 <!-- START::PROFILE CONTAINER -->
-<div class="flex flex-row items-center gap-4">
+<div class="flex flex-row items-center gap-0 md:gap-4">
   <!-- START::PROFILE CONTAINER -->
-  <div class="flex flex-row items-center gap-3">
+  <div class="flex-row items-center gap-3 hidden md:flex">
     <!-- START::AVATAR -->
     <div
-      class="avatar bg-bg-accent text-text-on-dark w-10 h-10 rounded-xl flex flex-col items-center justify-center"
+      class="avatar bg-bg-accent text-text-on-dark w-10 h-10 rounded-xl flex flex-col items-center justify-center shrink-0"
     >
-      <span class="uppercase">{{ userData()?.characters }}</span>
+      <span class="uppercase flex shrink-0">{{ userData()?.characters }}</span>
     </div>
     <!-- END::AVATAR -->
 
@@ -26,7 +26,7 @@
     variant="text"
     icon="pi pi-sign-out"
     size="large"
-    styleClasses="rtl:rotate-180"
+    styleClasses="rtl:rotate-180 !p-1 w-fit md:!px-2 md:w-auto"
     (onClick)="logout()"
   ></atlas-button>
   <!-- END::LOGOUT -->

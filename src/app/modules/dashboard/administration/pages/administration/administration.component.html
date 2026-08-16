@@ -24,10 +24,10 @@
   <!-- END::HEADER -->
 
   <!-- START::GRID -->
-  <div class="grid grid-cols-12 w-full gap-8">
+  <div class="grid grid-cols-1 xl:grid-cols-12 w-full gap-8">
     <!-- START::TENANTS LIST -->
     <atlas-card
-      class="col-span-4 w-full"
+      class="col-span-1 xl:col-span-4 w-full"
       [title]="baseTranslationPoint + 'tenantsCard.title' | translate"
       [description]="
         baseTranslationPoint + 'tenantsCard.description'
@@ -55,14 +55,14 @@
 
     <!-- START::TENANTS USER LIST -->
     <atlas-card
-      class="col-span-8 w-full"
+      class="col-span-1 xl:col-span-8 w-full"
       [title]="
         baseTranslationPoint + 'usersCard.title'
           | translate
             : {
                 name:
                   selectedTenant()?.name ||
-                  (baseTranslationPoint + 'usersCard.defaultTenantName' | translate)
+                  (baseTranslationPoint + 'usersCard.defaultTenantName' | translate),
               }
       "
       [description]="baseTranslationPoint + 'usersCard.description' | translate"

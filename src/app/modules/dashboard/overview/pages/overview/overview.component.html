@@ -25,10 +25,10 @@
   <!-- END::HEADER -->
 
   <!-- START::METRICS -->
-  <div class="grid grid-cols-4 w-full gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-8">
     @for (metric of metrics(); track $index) {
       <atlas-overview-metric
-        class="col-span-1"
+        class="col-span-1 h-full"
         [title]="metric.titleKey | translate"
         [value]="metric.value"
         [details]="metric.detailsKey | translate"
@@ -41,10 +41,10 @@
   <!-- END::METRICS -->
 
   <!-- START::GRID -->
-  <div class="grid grid-cols-12 w-full gap-8">
+  <div class="grid grid-cols-1 xl:grid-cols-12 w-full gap-8">
     <!-- START::RECENTLY UPDATED CARD -->
     <atlas-card
-      class="col-span-7 w-full"
+      class="col-span-1 lg:col-span-7 w-full"
       [title]="baseTranslationPoint + 'recentlyUpdated.title' | translate"
       [description]="baseTranslationPoint + 'recentlyUpdated.description' | translate"
     >
@@ -86,7 +86,7 @@
 
     <!-- START::Compliance distribution CARD -->
     <atlas-card
-      class="col-span-5 w-full"
+      class="col-span-1 xl:col-span-5 w-full"
       [title]="baseTranslationPoint + 'complianceDistribution.title' | translate"
       [description]="baseTranslationPoint + 'complianceDistribution.description' | translate"
     >
